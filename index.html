@@ -1,40 +1,407 @@
 <!DOCTYPE html>
-<html lang="nl">
-	<head>
-        <meta charset="UTF-8">
-        <meta name="description"
-              content="Projecten van Iris van der Ende, kosmosmuzikant">
-        <meta name="author" content="Samuel Thewessen">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Website Iris van der Ende</title>
-		<link rel="stylesheet" type="text/css" href="./css/ump_style.css">
-		<link rel="stylesheet" type="text/css" href="./css/index_colors.css">
-	</head>
-	<body>
-      <div id='flex_container' class='container'>
-        <div id='icon_container' class='icon_container'> 
-            <svg id="menu_icon" class="menu_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" >
-                <rect id="background" x="0" y="0" width="100%" height="100%" style="fill: none; stroke:none;"/>
-                <line id="line1" x1="10%" y1="25%" x2="90%" y2="25%" style="stroke:inherit;fill:none;stroke-width:10%;stroke-linecap:round;vector-effect:non-scaling-stroke;"/>
-                <line id="line2" x1="10%" y1="50%" x2="90%" y2="50%" style="stroke:inherit;fill:none;stroke-width:10%;stroke-linecap:round;vector-effect:non-scaling-stroke;"/>
-                <line id="line3" x1="10%" y1="75%" x2="90%" y2="75%" style="stroke:inherit;fill:none;stroke-width:10%;stroke-linecap:round;vector-effect:non-scaling-stroke;"/>
-            </svg>
-        </div>       
-        <div id='article' class='article'>
-          <h1 class=''>Iris van der Ende</h1>
-        </div>
-        <div id='nav' class='navigation'>
-            <!-- Javascript gets inserted here (req. #id='nav'). -->
-        </div>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name='description'
+          content='Een nieuwe opzet voor de website'>
+    <meta name='author' content='Samuel Thewessen'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' type='text/css' href='./css/style.css'>
+    <link rel="stylesheet" href="https://use.typekit.net/rbj7wgv.css">
+    <title>Verte</title>
+  </head>
+  <body>
+    <div id='top' class='header'>
+    <svg id="header_img" 
+         xmlns="http://www.w3.org/2000/svg" 
+         x="0px" y="0px"
+         xmlns:xlink="http://www.w3.org/1999/xlink" 
+         viewBox="0 0 2560 110">
+      <defs>
+        <clipPath id="clip">
+          <rect style="fill:none;" x="0" y="25" width="80%" height="110"/>
+        </clipPath>
+      </defs>
+      <g style="clip-path:url(#clip)">
+        <line class="st_blue" x1="20" y1="114.59" x2="80" y2="0.16"/>
+        <line class="st_black" x1="60" y1="114.59" x2="120" y2="0.16"/>
+        <line class="st_black" x1="100" y1="114.59" x2="160" y2="0.16"/>
+        <line class="st_black" x1="140" y1="114.59" x2="200" y2="0.16"/>
+        <line class="st_red" x1="180" y1="114.59" x2="240" y2="0.16"/>
+        <line class="st_black" x1="220" y1="114.59" x2="280" y2="0.16"/>
+        <line class="st_black" x1="260" y1="114.59" x2="320" y2="0.16"/>
+        <line class="st_blue" x1="300" y1="114.59" x2="360" y2="0.16"/>
+        <line class="st_black" x1="340" y1="114.59" x2="400" y2="0.16"/>
+        <line class="st_black" x1="380" y1="114.59" x2="440" y2="0.16"/>
+        <line class="st_black" x1="420" y1="114.59" x2="480" y2="0.16"/>
+        <line class="st_red" x1="460" y1="114.59" x2="520" y2="0.16"/>
+        <line class="st_black" x1="500" y1="114.59" x2="560" y2="0.16"/>
+        <line class="st_black" x1="540" y1="114.59" x2="600" y2="0.16"/>
+        <line class="st_blue" x1="580" y1="114.59" x2="640" y2="0.16"/>
+        <line class="st_black" x1="620" y1="114.59" x2="680" y2="0.16"/>
+        <line class="st_black" x1="660" y1="114.59" x2="720" y2="0.16"/>
+        <line class="st_black" x1="700" y1="114.59" x2="760" y2="0.16"/>
+        <line class="st_red" x1="740" y1="114.59" x2="800" y2="0.16"/>
+        <line class="st_blue" x1="780" y1="114.59" x2="840" y2="0.16"/>
+        <line class="st_black" x1="820" y1="114.59" x2="880" y2="0.16"/>
+        <line class="st_black" x1="860" y1="114.59" x2="920" y2="0.16"/>
+        <line class="st_black" x1="900" y1="114.59" x2="960" y2="0.16"/>
+        <line class="st_red" x1="940" y1="114.59" x2="1000" y2="0.16"/>
+        <line class="st_black" x1="980" y1="114.59" x2="1040" y2="0.16"/>
+        <line class="st_black" x1="1020" y1="114.59" x2="1080" y2="0.16"/>
+        <line class="st_blue" x1="1060" y1="114.59" x2="1120" y2="0.16"/>
+        <line class="st_black" x1="1100" y1="114.59" x2="1160" y2="0.16"/>
+        <line class="st_black" x1="1140" y1="114.59" x2="1200" y2="0.16"/>
+        <line class="st_black" x1="1180" y1="114.59" x2="1240" y2="0.16"/>
+        <line class="st_red" x1="1220" y1="114.59" x2="1280" y2="0.16"/>
+        <line class="st_black" x1="1260" y1="114.59" x2="1320" y2="0.16"/>
+        <line class="st_black" x1="1300" y1="114.59" x2="1360" y2="0.16"/>
+        <line class="st_black" x1="1340" y1="114.59" x2="1400" y2="0.16"/>
+        <line class="st_blue" x1="1380" y1="114.59" x2="1440" y2="0.16"/>
+        <line class="st_black" x1="1420" y1="114.59" x2="1480" y2="0.16"/>
+        <line class="st_black" x1="1460" y1="114.59" x2="1520" y2="0.16"/>
+        <line class="st_red" x1="1500" y1="114.59" x2="1560" y2="0.16"/>
+        <line class="st_black" x1="1540" y1="114.59" x2="1600" y2="0.16"/>
+        <line class="st_black" x1="1580" y1="114.59" x2="1640" y2="0.16"/>
+        <line class="st_black" x1="1620" y1="114.59" x2="1680" y2="0.16"/>
+        <line class="st_blue" x1="1660" y1="114.59" x2="1720" y2="0.16"/>
+        <line class="st_black" x1="1700" y1="114.59" x2="1760" y2="0.16"/>
+        <line class="st_black" x1="1740" y1="114.59" x2="1800" y2="0.16"/>
+        <line class="st_red" x1="1780" y1="114.59" x2="1840" y2="0.16"/>
+        <line class="st_black" x1="1820" y1="114.59" x2="1880" y2="0.16"/>
+        <line class="st_black" x1="1860" y1="114.59" x2="1920" y2="0.16"/>
+        <line class="st_black" x1="1900" y1="114.59" x2="1960" y2="0.16"/>
+        <line class="st_blue" x1="1940" y1="114.59" x2="2000" y2="0.16"/>
+        <line class="st_black" x1="1980" y1="114.59" x2="2040" y2="0.16"/>
+        <line class="st_black" x1="2020" y1="114.59" x2="2080" y2="0.16"/>
+        <line class="st_red" x1="2060" y1="114.59" x2="2120" y2="0.16"/>
+        <lise class="st_black" x1="2100" y1="114.59" x2="2155" y2="0.16"/>
+        <line class="st_black" x1="2140" y1="114.59" x2="2200" y2="0.16"/>
+        <line class="st_black" x1="2180" y1="114.59" x2="2240" y2="0.16"/>
+        <line class="st_blue" x1="2220" y1="114.59" x2="2280" y2="0.16"/>
+        <line class="st_black" x1="2260" y1="114.59" x2="2320" y2="0.16"/>
+        <line class="st_black" x1="2300" y1="114.59" x2="2360" y2="0.16"/>
+        <line class="st_red" x1="2340" y1="114.59" x2="2400" y2="0.16"/>
+        <line class="st_black" x1="2380" y1="114.59" x2="2440" y2="0.16"/>
+        <line class="st_black" x1="2420" y1="114.59" x2="2480" y2="0.16"/>
+        <line class="st_black" x1="2460" y1="114.59" x2="2520" y2="0.16"/>
+        <line class="st_blue" x1="2500" y1="114.59" x2="2560" y2="0.16"/>
+      </g>
+    </svg>
+    <h5>Iris van der Ende</h5>
+    </div>
+    <div class='article'>
+      <h1>Verte</h1>
+      <ul class='no_top_margin flavor'>
+        <li>Iris? Ben je daar?</li>
+        <li>Ja, maar ik zie jou niet</li>
+        <li>Wacht even</li>
+      </ul>
+      <image-gallery>
+        <img src='./img/verte_large0.jpg' />
+        <img src='./img/verte_large1.jpg' />
+        <img src='./img/verte_large2.jpg' />
+        <img src='./img/verte_large3.jpg' />
+        <img src='./img/verte_large4.jpg' />
+      </image-gallery>
+      <p class='text_width'>
+        Samen met theatermaker Bart van de Woestijne zocht ik naar de
+        betekenis van het woord verbinding in een digitaal tijdperk. Overal
+        waar we zijn kunnen we contact maken met iemand die er lijfelijk
+        niet is en dat contact voelt echt en wezenlijk. Terwijl er onderweg
+        van hier naar daar, van alles gebeurt met iemands stem, met iemands
+        woorden, met iemands bedoeling. De verbinding regisseert de tekst,
+        versnippert de zinnen, en misschien ook wel de communicatie. Een
+        voorstelling over wat buiten beeld valt, wat niet binnen komt, over
+        het reiken naar, over de haperende mens en haperende technologie.
+        Hoe beleef ik de ander vanuit de verte?
+      </p>
+      <ul class='flavor'>
+        <li>Je ziet de barsten niet in</li>
+        <li>de muur van mijn kamer</li>
+        <li>Jawel</li>
+        <li>Je kan mijn hart niet horen</li>
+        <li>kloppen</li>
+        <li>Jawel</li>
+      </ul>
+      <div class="text_width youtube_container">
+        <iframe src="https://player.vimeo.com/video/125554621"
+                style="width:100%; height: 100%; position: absolute; 
+                      top: 0; left: 0; scrolling: no;" 
+                frameborder="0" allowfullscreen>
+        </iframe>
       </div>
-      <div id='background_img' class='bg_img'></div>
-      <script src='./js/navigation.js'></script>
-      <script src='./js/addEventListeners.js'></script>
-      <script>
-          window.onload = function() {
-              document.getElementById('background_img').style.display="block";
-              
-          };
-      </script>
-	</body>
+      <p class='quote'>
+        <a href='https://www.volkskrant.nl/cultuur-media/een-fraaie-waaier-aan-voorstellingen-bij-de-parade~b1bd5fa1/' 
+           target='_blank'>
+          ‘Met weinig middelen – hun lijf,
+          een lijst, het licht – komen ze tot
+          een sterke performance, niet per
+          se eenduidig, vaak
+          herkenbaar en van nu.’<br />
+          <svg version="1.1" 
+            xmlns="http://www.w3.org/2000/svg" 
+            xmlns:xlink="http://www.w3.org/1999/xlink" 
+            x="0px" y="0px" 
+            viewBox="0 0 535.5 535.5" 
+            xml:space="preserve" 
+            width="1em" height="1em" 
+            style="enable-background:new 0 0 535.5 535.5;">
+            <g>
+              <polygon points="535.5,210.375 344.25,210.375 267.75,19.125
+              191.25,210.375 0,210.375 172.125,325.125 95.625,516.375
+              267.75,401.625 439.875,516.375 363.375,325.125  "/>
+            </g>
+          </svg>
+          <svg version="1.1" 
+            xmlns="http://www.w3.org/2000/svg" 
+            xmlns:xlink="http://www.w3.org/1999/xlink" 
+            x="0px" y="0px" 
+            viewBox="0 0 535.5 535.5" 
+            xml:space="preserve" 
+            width="1em" height="1em" 
+            style="enable-background:new 0 0 535.5 535.5;">
+            <g>
+              <polygon points="535.5,210.375 344.25,210.375 267.75,19.125
+              191.25,210.375 0,210.375 172.125,325.125 95.625,516.375
+              267.75,401.625 439.875,516.375 363.375,325.125  "/>
+            </g>
+          </svg>
+          <svg version="1.1" 
+            xmlns="http://www.w3.org/2000/svg" 
+            xmlns:xlink="http://www.w3.org/1999/xlink" 
+            x="0px" y="0px" 
+            viewBox="0 0 535.5 535.5" 
+            xml:space="preserve" 
+            width="1em" height="1em" 
+            style="enable-background:new 0 0 535.5 535.5;">
+            <g>
+              <polygon points="535.5,210.375 344.25,210.375 267.75,19.125
+              191.25,210.375 0,210.375 172.125,325.125 95.625,516.375
+              267.75,401.625 439.875,516.375 363.375,325.125  "/>
+            </g>
+          </svg>
+          <svg version="1.1" 
+            xmlns="http://www.w3.org/2000/svg" 
+            xmlns:xlink="http://www.w3.org/1999/xlink" 
+            x="0px" y="0px" 
+            viewBox="0 0 535.5 535.5" 
+            xml:space="preserve" 
+            width="1em" height="1em" 
+            style="enable-background:new 0 0 535.5 535.5;">
+            <g>
+              <polygon points="535.5,210.375 344.25,210.375 267.75,19.125
+              191.25,210.375 0,210.375 172.125,325.125 95.625,516.375
+              267.75,401.625 439.875,516.375 363.375,325.125  "/>
+            </g>
+          </svg>
+          <img src="./img/logo/volkskrant_logo.jpg" />
+        </a>
+      </p>
+      <p class='quote'>
+        <a href='https://www.theaterkrant.nl/recensie/verte/bart-van-de-woestijne-iris-van-der-ende/' 
+           target='_blank'>
+          ‘Nu komen de thematiek, de
+          poëzie in de taal en het
+          afstandelijke toneelbeeld pas
+          echt samen, het wordt theatraal,
+          het publiek wordt betrokken en
+          een jongen, met al zijn
+          haperingen, communiceert.’<br />
+          <svg version="1.1" 
+            xmlns="http://www.w3.org/2000/svg" 
+            xmlns:xlink="http://www.w3.org/1999/xlink" 
+            x="0px" y="0px" 
+            viewBox="0 0 535.5 535.5" 
+            xml:space="preserve" 
+            width="1em" height="1em" 
+            style="enable-background:new 0 0 535.5 535.5;">
+            <g>
+              <polygon points="535.5,210.375 344.25,210.375 267.75,19.125
+              191.25,210.375 0,210.375 172.125,325.125 95.625,516.375
+              267.75,401.625 439.875,516.375 363.375,325.125  "/>
+            </g>
+          </svg>
+          <svg version="1.1" 
+            xmlns="http://www.w3.org/2000/svg" 
+            xmlns:xlink="http://www.w3.org/1999/xlink" 
+            x="0px" y="0px" 
+            viewBox="0 0 535.5 535.5" 
+            xml:space="preserve" 
+            width="1em" height="1em" 
+            style="enable-background:new 0 0 535.5 535.5;">
+            <g>
+              <polygon points="535.5,210.375 344.25,210.375 267.75,19.125
+              191.25,210.375 0,210.375 172.125,325.125 95.625,516.375
+              267.75,401.625 439.875,516.375 363.375,325.125  "/>
+            </g>
+          </svg>
+          <svg version="1.1" 
+            xmlns="http://www.w3.org/2000/svg" 
+            xmlns:xlink="http://www.w3.org/1999/xlink" 
+            x="0px" y="0px" 
+            viewBox="0 0 535.5 535.5" 
+            xml:space="preserve" 
+            width="1em" height="1em" 
+            style="enable-background:new 0 0 535.5 535.5;">
+            <g>
+              <polygon points="535.5,210.375 344.25,210.375 267.75,19.125
+              191.25,210.375 0,210.375 172.125,325.125 95.625,516.375
+              267.75,401.625 439.875,516.375 363.375,325.125  "/>
+            </g>
+          </svg>
+          <img src="./img/logo/theaterkrant_logo.png" 
+							 style="border-bottom:none" />
+        </a>
+      </p>
+      <ul class='credits'>
+        <li>performers</li>
+        <li><b>Iris van der Ende,</b></li>
+        <li><b>Bart van de Woestijne</b></li>
+        <li>dramaturgie</li>
+        <li><b>Tess Scholten</b></li>
+        <li>eindregie <b>Marijn van der Jagt</b></li>
+        <li>vormgeving <b>Serena Kloet</b></li>
+        <li>ondersteund door</li>
+        <li><b>K.F. Hein fonds &amp; Gemeente Utrecht</b></li>
+        <li>video <b>balanslab.com</li></b>
+      </ul> 
+      <a href='#top'>
+        <div class='back_to_top'>
+          <svg version="1.1" 
+               id="back_img" 
+               xmlns="http://www.w3.org/2000/svg" 
+               xmlns:xlink="http://www.w3.org/1999/xlink" 
+               x="0px" y="0px"
+               viewBox="0 0 551.92 502.32" 
+               style="enable-background:new 0 0 551.92 502.32;" 
+               xml:space="preserve">
+          <style type="text/css">
+            .st0{fill:none;stroke:#2B4FA2;stroke-width:5.6693;}
+          </style>
+          <g>
+            <line class="st_blue" style="stroke-width:5.67" x1="52.55" y1="462.92" x2="276.69" y2="41.37"/>
+            <line class="st_blue" style="stroke-width:5.67" x1="499.47" y1="462.92" x2="275.33" y2="41.37"/>
+          </g>
+          </svg>
+          terug naar boven
+        </div>
+      </a>
+    </div>
+    <div class='footer'>
+      <h6 class='copyright'>Iris van der Ende &copy; 2019</h6>
+			<svg id="footer_img" 
+					 xmlns="http://www.w3.org/2000/svg" 
+					 x="0px" y="0px"
+					 xmlns:xlink="http://www.w3.org/1999/xlink" 
+					 viewBox="0 0 2560 110">
+				<defs>
+					<clipPath id="clip">
+						<rect style="fill:none;" x="0" y="25" width="2560" height="110"/>
+					</clipPath>
+				</defs>
+				<g style="clip-path:url(#clip)">
+					<line class="st_blue" x1="20" y1="114.59" x2="80" y2="0.16"/>
+					<line class="st_black" x1="60" y1="114.59" x2="120" y2="0.16"/>
+					<line class="st_black" x1="100" y1="114.59" x2="160" y2="0.16"/>
+					<line class="st_black" x1="140" y1="114.59" x2="200" y2="0.16"/>
+					<line class="st_red" x1="180" y1="114.59" x2="240" y2="0.16"/>
+					<line class="st_black" x1="220" y1="114.59" x2="280" y2="0.16"/>
+					<line class="st_black" x1="260" y1="114.59" x2="320" y2="0.16"/>
+					<line class="st_blue" x1="300" y1="114.59" x2="360" y2="0.16"/>
+					<line class="st_black" x1="340" y1="114.59" x2="400" y2="0.16"/>
+					<line class="st_black" x1="380" y1="114.59" x2="440" y2="0.16"/>
+					<line class="st_black" x1="420" y1="114.59" x2="480" y2="0.16"/>
+					<line class="st_red" x1="460" y1="114.59" x2="520" y2="0.16"/>
+					<line class="st_black" x1="500" y1="114.59" x2="560" y2="0.16"/>
+					<line class="st_black" x1="540" y1="114.59" x2="600" y2="0.16"/>
+					<line class="st_blue" x1="580" y1="114.59" x2="640" y2="0.16"/>
+					<line class="st_black" x1="620" y1="114.59" x2="680" y2="0.16"/>
+					<line class="st_black" x1="660" y1="114.59" x2="720" y2="0.16"/>
+					<line class="st_black" x1="700" y1="114.59" x2="760" y2="0.16"/>
+					<line class="st_red" x1="740" y1="114.59" x2="800" y2="0.16"/>
+					<line class="st_blue" x1="780" y1="114.59" x2="840" y2="0.16"/>
+					<line class="st_black" x1="820" y1="114.59" x2="880" y2="0.16"/>
+					<line class="st_black" x1="860" y1="114.59" x2="920" y2="0.16"/>
+					<line class="st_black" x1="900" y1="114.59" x2="960" y2="0.16"/>
+					<line class="st_red" x1="940" y1="114.59" x2="1000" y2="0.16"/>
+					<line class="st_black" x1="980" y1="114.59" x2="1040" y2="0.16"/>
+					<line class="st_black" x1="1020" y1="114.59" x2="1080" y2="0.16"/>
+					<line class="st_blue" x1="1060" y1="114.59" x2="1120" y2="0.16"/>
+					<line class="st_black" x1="1100" y1="114.59" x2="1160" y2="0.16"/>
+					<line class="st_black" x1="1140" y1="114.59" x2="1200" y2="0.16"/>
+					<line class="st_black" x1="1180" y1="114.59" x2="1240" y2="0.16"/>
+					<line class="st_red" x1="1220" y1="114.59" x2="1280" y2="0.16"/>
+					<line class="st_black" x1="1260" y1="114.59" x2="1320" y2="0.16"/>
+					<line class="st_black" x1="1300" y1="114.59" x2="1360" y2="0.16"/>
+					<line class="st_black" x1="1340" y1="114.59" x2="1400" y2="0.16"/>
+					<line class="st_blue" x1="1380" y1="114.59" x2="1440" y2="0.16"/>
+					<line class="st_black" x1="1420" y1="114.59" x2="1480" y2="0.16"/>
+					<line class="st_black" x1="1460" y1="114.59" x2="1520" y2="0.16"/>
+					<line class="st_red" x1="1500" y1="114.59" x2="1560" y2="0.16"/>
+					<line class="st_black" x1="1540" y1="114.59" x2="1600" y2="0.16"/>
+					<line class="st_black" x1="1580" y1="114.59" x2="1640" y2="0.16"/>
+					<line class="st_black" x1="1620" y1="114.59" x2="1680" y2="0.16"/>
+					<line class="st_blue" x1="1660" y1="114.59" x2="1720" y2="0.16"/>
+					<line class="st_black" x1="1700" y1="114.59" x2="1760" y2="0.16"/>
+					<line class="st_black" x1="1740" y1="114.59" x2="1800" y2="0.16"/>
+					<line class="st_red" x1="1780" y1="114.59" x2="1840" y2="0.16"/>
+					<line class="st_black" x1="1820" y1="114.59" x2="1880" y2="0.16"/>
+					<line class="st_black" x1="1860" y1="114.59" x2="1920" y2="0.16"/>
+					<line class="st_black" x1="1900" y1="114.59" x2="1960" y2="0.16"/>
+					<line class="st_blue" x1="1940" y1="114.59" x2="2000" y2="0.16"/>
+					<line class="st_black" x1="1980" y1="114.59" x2="2040" y2="0.16"/>
+					<line class="st_black" x1="2020" y1="114.59" x2="2080" y2="0.16"/>
+					<line class="st_red" x1="2060" y1="114.59" x2="2120" y2="0.16"/>
+					<lise class="st_black" x1="2100" y1="114.59" x2="2155" y2="0.16"/>
+					<line class="st_black" x1="2140" y1="114.59" x2="2200" y2="0.16"/>
+					<line class="st_black" x1="2180" y1="114.59" x2="2240" y2="0.16"/>
+					<line class="st_blue" x1="2220" y1="114.59" x2="2280" y2="0.16"/>
+					<line class="st_black" x1="2260" y1="114.59" x2="2320" y2="0.16"/>
+					<line class="st_black" x1="2300" y1="114.59" x2="2360" y2="0.16"/>
+					<line class="st_red" x1="2340" y1="114.59" x2="2400" y2="0.16"/>
+					<line class="st_black" x1="2380" y1="114.59" x2="2440" y2="0.16"/>
+					<line class="st_black" x1="2420" y1="114.59" x2="2480" y2="0.16"/>
+					<line class="st_black" x1="2460" y1="114.59" x2="2520" y2="0.16"/>
+					<line class="st_blue" x1="2500" y1="114.59" x2="2560" y2="0.16"/>
+				</g>
+			</svg>
+    </div>
+		<script src="./js/imageGallery.js"></script>
+    <script>
+      (function() {
+        let btts = document.getElementsByClassName('back_to_top');
+
+
+        for( i = 0; i < btts.length; i += 1 ) {
+          btts[i].addEventListener(
+            'mouseenter',
+            function() {
+              let lines = this.getElementsByTagName('line');
+
+              function MoveDown() {
+                  lines[0].y2.baseVal.value += 13.33;
+                  lines[1].y2.baseVal.value += 13.33;
+              }
+              function MoveUp() {
+                  lines[0].y2.baseVal.value -= 20;
+                  lines[1].y2.baseVal.value -= 20;
+              }
+
+              let id = setInterval(MoveDown,10);
+              setTimeout(() => {
+                clearInterval(id)
+                id = setInterval(MoveUp,10);
+              }, 300)
+              setTimeout(() => {
+                clearInterval(id)
+                lines[0].y2.baseVal.value = 41.37;
+                lines[1].y2.baseVal.value = 41.37;
+              }, 500)
+            }
+          )
+        }
+      })
+    </script>
+  </body>
 </html>

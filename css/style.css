@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: orpheuspro, serif;
+  font-size: 16px;
+  margin: 0;
+	overflow-x: hidden;
+}
+body {
+  text-align: center;
+  font-size: 100%;
+  margin: 0;
+	overflow-x: hidden;
+}
+p {
+  text-align: left;
+  margin: 1em auto;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+h1 {
+  display: inline-block;
+  width: 100%;
+  font-size: 4rem;
+  font-weight: 400;
+  text-align: center;
+  font-style: italic;
+  margin: .7em 0 0 0;
+}
+h5 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 10%;
+  padding: 0;
+  text-transform: uppercase;
+  float: left;
+}
+h6 {
+  margin: 0 1em;
+  float: right;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+img {
+  margin: 1em auto;
+}
+.article {
+  height: 100%;
+  padding-bottom: 20%;
+}
+.header {
+  display: block;
+  width: 100%;
+}
+.header > svg {
+  margin: 0;
+  height: 110px;
+}
+.footer {
+  display: block;
+  width: 100%;
+}
+.footer > svg {
+  margin: 0;
+  height: 100px;
+}
+.back_to_top {
+  margin: 4em auto;
+  max-width: 100%;
+  cursor: pointer;
+}
+.back_to_top > svg {
+  width: 15%;
+  display: block;
+  margin: 1em auto;
+}
+.back_to_top:hover > svg {
+  animation: backtop 1.5s linear infinite;
+}
+.flavor {
+  margin: 1.5em auto;
+  font-size: 1.5rem;
+}
+.credits {
+  text-align: left;
+  margin: 5%;
+}
+.quote {
+  font-size: 1.5rem;
+  width: 80%;
+  cursor: pointer;
+  text-align: center;
+}
+.quote svg {
+  height: .7em;
+  width: .7em;
+  margin: .2em 0;
+}
+.quote img {
+  display: block;
+  height: 2rem;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+}
+.st_blue {
+  fill: none;
+  stroke: #2B4FA2;
+  stroke-width: 1;
+}
+.st_red {
+  fill: none;
+  stroke: #ED1C24;
+  stroke-width: 1;
+}
+.st_black {
+  fill: none;
+  stroke: #231F20;
+  stroke-width: 1;
+}
+.full_width {
+  width: 100%;
+}
+.text_width {
+  width: 90%;
+}
+.no_top_margin {
+  margin-top: 0 !important;
+}
+.copyright {
+  text-align: right;
+  /* float: right; */
+}
+.youtube_container {
+  background-color: transparent;
+  border-radius: 5px;
+  display: block;
+  margin: 1em auto;
+  padding-top: 50.65%;
+  position: relative;
+}
+@keyframes backtop {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+@media only screen and (min-width: 768px) {
+  .article {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
