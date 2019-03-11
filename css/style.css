@@ -1,21 +1,29 @@
-* {
+:root, *, *:before, *:after {
   box-sizing: border-box;
+  text-rendering: optimizeLegibility;
 }
 html {
   font-family: orpheuspro, serif;
   font-size: 16px;
+  color: rgb(14,14,14);
+  background-color: rgb(241,241,241);
   margin: 0;
 	overflow-x: hidden;
 }
 body {
+  min-height: 100vh;
   text-align: center;
   font-size: 100%;
   margin: 0;
 	overflow-x: hidden;
+  position: relative;
+  padding-bottom: 100px;
 }
 p {
   text-align: left;
-  margin: 1em auto;
+  margin: 1rem auto;
+  max-width: 34rem;
+  padding: 0 1em;
 }
 a {
   text-decoration: none;
@@ -28,108 +36,128 @@ h1 {
   font-weight: 400;
   text-align: center;
   font-style: italic;
-  margin: .7em 0 0 0;
+}
+h2 {
+  line-height: 1em;
+  font-size: 1.5em;
+  position: absolute;
+  bottom: 1em;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
 }
 h5 {
-  font-size: 1.5rem;
+  top: calc(100% * 2/3);
+  font-size: 1.3rem;
   font-weight: 500;
-  margin: 0 10%;
+  left: 0;
+  margin: 0 1em;
   padding: 0;
+  position: absolute;
   text-transform: uppercase;
   float: left;
 }
 h6 {
   margin: 0 1em;
-  float: right;
+  font-size: .8rem;
 }
 ul {
   list-style-type: none;
   padding: 0;
 }
 img {
-  margin: 1em auto;
-}
-.article {
-  height: 100%;
-  padding-bottom: 20%;
 }
 .header {
   display: block;
-  width: 100%;
-}
-.header > svg {
-  margin: 0;
-  height: 110px;
+  position: relative;
 }
 .footer {
   display: block;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.header > svg {
+  margin: 0 auto;
   width: 100%;
 }
 .footer > svg {
-  margin: 0;
-  height: 100px;
+  margin: 0 auto;
+  width: 100%;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 1%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.flex-item {
+  width: 98%;
+  padding-top: 55.125%;
+  margin: 1%;
+  background-color: orange;
+  position: relative;
+}
+.navigation {
+  text-align: left;
+  margin: 1em;
+  font-size: 1.5rem;
+}
+.navigation > li {
+  cursor: pointer;
+}
+.article {
+  height: 100%;
+  max-width: 900px;
+  padding-bottom: 100px;
+  margin: 0 auto;
 }
 .back_to_top {
   margin: 4em auto;
-  max-width: 100%;
+  max-width: 7rem;
   cursor: pointer;
 }
-.back_to_top > svg {
-  width: 15%;
+.back_to_top > a > svg {
+  width: 80%;
   display: block;
-  margin: 1em auto;
+  margin: 0 auto;
 }
-.back_to_top:hover > svg {
+.back_to_top:hover > a > svg {
   animation: backtop 1.5s linear infinite;
 }
 .flavor {
-  margin: 1.5em auto;
   font-size: 1.5rem;
 }
 .credits {
   text-align: left;
-  margin: 5%;
+  margin: 1rem;
 }
 .quote {
   font-size: 1.5rem;
-  width: 80%;
+  max-width: 24rem;
   cursor: pointer;
   text-align: center;
+  margin: 2em auto;
+  padding: 0 1em;
 }
 .quote svg {
   height: .7em;
   width: .7em;
-  margin: .2em 0;
+  margin-top: .8em;
 }
 .quote img {
   display: block;
   height: 2rem;
-  margin: 0 auto;
   border-bottom: 1px solid black;
-}
-.st_blue {
-  fill: none;
-  stroke: #2B4FA2;
-  stroke-width: 1;
-}
-.st_red {
-  fill: none;
-  stroke: #ED1C24;
-  stroke-width: 1;
-}
-.st_black {
-  fill: none;
-  stroke: #231F20;
-  stroke-width: 1;
-}
-.full_width {
-  width: 100%;
-}
-.text_width {
-  width: 90%;
+  margin: 0 auto;
 }
 .no_top_margin {
   margin-top: 0 !important;
+}
+.no_bottom_margin {
+  margin-bottom: 0 !important;
 }
 .copyright {
   text-align: right;
@@ -139,9 +167,24 @@ img {
   background-color: transparent;
   border-radius: 5px;
   display: block;
-  margin: 1em auto;
   padding-top: 50.65%;
   position: relative;
+}
+.st_black {
+  stroke: rgb(35,31,32);
+  stroke-width: 1;
+}
+.st_white {
+  stroke: rgb(241,241,241);
+  stroke-width: 1;
+}
+.st_blue {
+  stroke: rgb(53,79,162);
+  stroke-width: 1;
+}
+.st_red {
+  stroke: rgb(237,28,36);
+  stroke-width: 1;
 }
 @keyframes backtop {
   0% {
@@ -151,9 +194,34 @@ img {
     transform: rotateY(360deg);
   }
 }
+/* Ipad or greater format */
 @media only screen and (min-width: 768px) {
   .article {
-    width: 50%;
-    margin: 0 auto;
+    padding-bottom: 130px;
+  }
+
+  .flex-item {
+    width: 48%;
+    padding-top: 27%;
+  }
+}
+/* medium desktop or greater format */
+@media only screen and (min-width: 992px) {
+  .flex-item {
+    width: 31%;
+    padding-top: 17.4%;
+  }
+  html {
+    font-size: 18px;
+  }
+}
+/* large desktops */
+@media only screen and (min-width: 1200px) {
+  .flex-item {
+    width: 23%;
+    padding-top: 12.94%;
+  }
+  html {
+    font-size: 20px;
   }
 }
