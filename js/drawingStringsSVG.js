@@ -10,7 +10,7 @@ if ( !footer ) {
     `)
   return;
 }
-const header = document.getElementById('header');
+let header = document.getElementById('header');
 if ( !header ) {
   console.err(`
     drawingLinesSVG.js loaded but no svg with id='header' found.
@@ -19,13 +19,13 @@ if ( !header ) {
     `)
   return;
 }
-const harpburger = document.getElementById("harpburger")
+let harpburger = document.getElementById("harpburger")
 if ( !harpburger ) {
   console.warn("No svg with id='harpburger' detected. Unable to create click event.");
   return;
 }
-const art = document.getElementById('content'),
-      nav = document.getElementById('nav');
+let art = document.getElementById('content'),
+    nav = document.getElementById('nav');
 if( !art || !nav ) {
   console.warn("There are no id='content' and/or id='nav' divs to swap");
 }
@@ -159,6 +159,15 @@ function createBurgerIcon( elem ) {
     };
     setAttributes( line, dims );
   };
+  let st1 = elem.children[ elem.children.length - 3 ];
+  let st2 = elem.children[ elem.children.length - 2 ];
+  let st3 = elem.children[ elem.children.length - 1 ];
+  st2.style.opacity = 1;
+  if ( !isOpen ) {
+    st2.style.opacity = 0;
+    st1.setAttribute('x2', st3.getAttribute('x1') );
+    st3.setAttribute('x2', st1.getAttribute('x1') );
+  };
 }
 
 let sts = header.children;
@@ -177,7 +186,6 @@ function grabBurgerIcon() {
   st1 = sts[sts.length - 3];
   st2 = sts[sts.length - 2];
   st3 = sts[sts.length - 1];
-  st2.style.opacity = 1;
 }
 
 document.getElementById("harpburger").addEventListener(
@@ -195,8 +203,8 @@ document.getElementById("harpburger").addEventListener(
   } else {
     let delta = parseInt(st2.getAttribute('x1')) - parseInt(st2.getAttribute('x2'));
     animate( nav.style, "opacity", 0, 200 );
-    animate( st1.x2.baseVal, "value", st1.getAttribute('x1') - delta, 200 );
-    animate( st3.x2.baseVal, "value", st3.getAttribute('x1') - delta, 200, () => {
+    animate( st3.x2.baseVal, "value", st3.getAttribute('x1') - delta, 200 );
+    animate( st1.x2.baseVal, "value", st1.getAttribute('x1') - delta, 200, () => {
       nav.style.display = "none";
       animate( art.style, "opacity", 1, 100 );
       animate( st2.style, "opacity", 1, 100 );
