@@ -26,6 +26,9 @@ body {
   position: relative;
   /* padding-bottom: 100px; */
 }
+main {
+  padding-bottom: 100px;
+}
 p {
   text-align: left;
   margin: 1rem auto;
@@ -48,7 +51,6 @@ h2 {
   line-height: 1em;
   font-size: 1.5em;
   font-weight: 500;
-  position: absolute;
   bottom: 0;
   margin: 0 auto;
   width: 100%;
@@ -73,23 +75,22 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-.header {
+header {
   display: block;
   position: relative;
 }
-.footer {
+header > svg {
+  margin: 0 auto;
+  width: 100%;
+}
+footer {
   display: block;
   position: absolute;
   width: 100%;
   bottom: 0;
   left: 0;
 }
-.header > svg {
-  margin: 0 auto;
-  width: 100%;
-}
-.footer > svg {
-  margin: 0 auto;
+footer > svg {
   width: 100%;
 }
 .flex-container {
@@ -98,16 +99,19 @@ ul {
 }
 .flex-item {
   width: 98%;
-  padding-top: 55.125%;
   margin: 1%;
-  position: relative;
 }
 .flex-item > img {
   display: block;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+}
+nav > ul {
+  text-align: left;
+  margin: 1em;
+  font-size: 1.5rem;
+}
+nav > ul > li {
+  cursor: pointer;
 }
 .navigation {
   text-align: left;
@@ -126,7 +130,7 @@ ul {
   width: 100vw;
 }
 .picture_nav {
-  padding: 0 1% 100px 1%;
+  padding: 0 1%;
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -134,10 +138,9 @@ ul {
   cursor: pointer;
   background-color: transparent;
 }
-.article {
-  height: 100%;
+section {
+  min-height: 100%;
   max-width: 900px;
-  padding-bottom: 100px;
   margin: 0 auto;
 }
 .back_to_top {
@@ -226,10 +229,7 @@ ul {
 }
 /* Ipad or greater format */
 @media only screen and (min-width: 768px) {
-  .article {
-    padding-bottom: 130px;
-  }
-  .picture_nav {
+  main {
     padding-bottom: 130px;
   }
   .back_to_top {
@@ -237,7 +237,6 @@ ul {
   }
   .flex-item {
     width: 48%;
-    padding-top: 27%;
   }
   .intro {
     background-image: url('../img/IVDE_Homepage_1200.jpg');
@@ -247,7 +246,6 @@ ul {
 @media only screen and (min-width: 992px) {
   .flex-item {
     width: 31%;
-    padding-top: 17.4%;
   }
   html {
     font-size: 18px;
@@ -257,7 +255,6 @@ ul {
 @media only screen and (min-width: 1200px) {
   .flex-item {
     width: 23%;
-    padding-top: 12.94%;
   }
   html {
     font-size: 20px;

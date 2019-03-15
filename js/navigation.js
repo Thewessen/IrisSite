@@ -64,10 +64,9 @@ function animate( obj, prop, end, time, callback ) {
   }
 }
 // find root elements
-let nav = document.getElementById('nav');
+let nav = document.querySelector("nav");
 if ( nav ) {
   let lust = document.createElement('ul');
-  lust.className = 'navigation';
   // Create list items
   for( let i = 0; i < indices.length; i += 1 ) {
     let span, link,

@@ -14,39 +14,41 @@
     <title>Iris van der Ende</title>
   </head>
   <body>
-    <div id="top" class="header">
-      <svg xmlns="http://www.w3.org/2000/svg" 
-           height="135">
-        <g id='header'>
-          <!-- Javascript gets inserted here -->
-        </g>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" 
-           id="harpburger" 
-           style="height:135px;width:155px;position:absolute;top:0;right:0;"
-           >
-      </svg>
-      <a href="index.html">
-        <h5>Iris van der Ende</h5>
-      </a>
-    </div>
-    <div id="content" class="intro">
-      <h1>Iris van der Ende</h1>
-    </div>
-    <div style="display:none;" id="nav">
-          <!-- Javascript gets inserted here -->
-    </div>
-    <div id="bottom" class="footer">
-      <h6 class="copyright">Iris van der Ende &copy; 2019</h6>
-      <svg xmlns="http://www.w3.org/2000/svg" 
-           height="90">
-        <g id='footer'>
-          <!-- Javascript gets inserted here -->
-        </g>
-      </svg>
-    </div>
-    <script src='./js/introEvents.js'></script>
-    <script src='./js/drawingStringsSVG.js'></script>
-    <script src='./js/navigation.js'></script>
+    <main>
+      <header id="top">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             height="135">
+          <g id="header">
+            <!-- Javascript gets inserted here -->
+          </g>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             id="harpburger" 
+             style="height:135px;width:155px;position:absolute;top:0;right:0;"
+             >
+        </svg>
+        <a href="index.html">
+          <h5>Iris van der Ende</h5>
+        </a>
+      </header>
+      <section class="intro">
+        <h1>Iris van der Ende</h1>
+      </section>
+      <nav style="display:none;" id="nav">
+            <!-- Javascript gets inserted here -->
+      </nav>
+      <footer id="bottom">
+        <h6 class="copyright">Iris van der Ende &copy; 2019</h6>
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             height="90">
+          <g id="footer">
+            <!-- Javascript gets inserted here -->
+          </g>
+        </svg>
+      </footer>
+    </main>
+    <script src="./js/introEvents.js"></script>
+    <script src="./js/drawingStringsSVG.js"></script>
+    <script src="./js/navigation.js"></script>
   </body>
 </html>
