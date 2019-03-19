@@ -101,7 +101,7 @@ footer > svg {
   width: 98%;
   margin: 1%;
 }
-.flex-item > img {
+.flex-item img {
   display: block;
   width: 100%;
 }

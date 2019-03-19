@@ -39,12 +39,25 @@
   container_style += "white-space:nowrap;";
   container_style += "scroll-behavior:smooth;";
 
+  let img_container_style = "";
+  img_container_style += "display: inline-block;";
+  img_container_style += "margin: 0;";
+  img_container_style += "padding: 0;";
+  img_container_style += "width: 100%;";
+  img_container_style += "position: relative;";
+
   let image_style = "";
   image_style += "display: inline-block;";
-  image_style += "float: none;";
-  image_style += "margin: 0;";
+  // image_style += "float: none;";
+  image_style += "margin: 0 auto;"; //changed
   image_style += "padding: 0;";
-  image_style += "width: 100%;";
+  image_style += "max-width: 900px;"; //changed
+
+  let cp_image_style = "";
+  cp_image_style = "display: inline-block;";
+  cp_image_style = "margin: 0;";
+  cp_image_style = "padding: 0;";
+  cp_image_style = "width: 100%;";
 
   let bullet_container_style = "";
   bullet_container_style += "display: block;";
@@ -69,22 +82,26 @@
         bullets = [],
         current = null;
 
-    // Create image container (needed for scroll)
-    let container = document.createElement('div');
+    // Create container (needed for scroll)
+    let container = document.createElement("div");
     container.style.cssText = container_style;
 
     // Create clickable bullet-list
     let list = document.createElement("ul");
     list.style.cssText = bullet_container_style;
 
+    // Necessary for IE ref (see bottom script)
+    let index = 0;
+    //
     // Move images too container
     // And create bullet item for each image
-    //
-    // Necessary for IE ref
-    let index = 0;
     while( imgs.length > 0 ) {
       let image = imgs[0];
       image.style.cssText = image_style;
+
+      // Create image container
+      let img_container = document.createElement("div");
+      img_container.style.cssText = img_container_style;
 
       // Create bullet list item
       let bul = document.createElement("li");
@@ -92,8 +109,9 @@
       bul.style.cssText = bullet_list_style;
       bul.appendChild(bul_text)
 
-      // Reference the bullet to corresponding img
-      bul.img = image;
+      // Reference the bullet to corresponding img container
+      // bul.img = image;
+      bul.img = img_container;
       bul.nr = index;
       index += 1;
 
@@ -127,10 +145,12 @@
       bullets.push(bul);
 
       // Move image in the container
-      container.appendChild(image)
+      // container.appendChild(image);
+      img_container.appendChild(image);
+      container.appendChild(img_container);
       
       // Move bullet in list
-      list.appendChild(bul)
+      list.appendChild(bul);
     }
 
     // Add the container and list too the image-gallery
