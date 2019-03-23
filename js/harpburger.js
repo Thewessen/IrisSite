@@ -45,8 +45,8 @@ function animate( obj, prop, end, time, callback ) {
 }
 
 // Get all the elements needed
-let art = document.getElementById('content'),
-    nav = document.getElementById('nav'),
+let art = document.querySelector('main'),
+    nav = document.getElementById('menu'),
     sts = document.getElementById('header').children;
 
 // The burger strings
@@ -65,6 +65,7 @@ let isOpen = true;
 
 document.getElementById("harpburger").addEventListener(
   'click', function() {
+    console.log('click!');
     if( isOpen ) {
       animate( art.style, "opacity", 0, 100 );
       animate( st2.style, "opacity", 0, 100, () => {

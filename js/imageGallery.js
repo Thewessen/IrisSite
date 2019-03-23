@@ -22,7 +22,7 @@
 
 (function() {
   const cur_color = "rgb(205,182,82)";
-  const interval_timing = 2000; // In milliseconds
+  const interval_timing = 5000; // In milliseconds
 
   // Use tags called <image-gallery> to initiate
   let gal = document.querySelectorAll("image-gallery");
@@ -33,11 +33,12 @@
 
   // All styles for the different elements
   let container_style = "";
-  container_style += "margin:2em 0;";
+  container_style += "margin:0;";
   container_style += "overflow:hidden;";
   container_style += "padding:0;";
   container_style += "white-space:nowrap;";
   container_style += "scroll-behavior:smooth;";
+  container_style += "line-height:0;";
 
   let img_container_style = "";
   img_container_style += "display: inline-block;";
@@ -48,16 +49,25 @@
 
   let image_style = "";
   image_style += "display: inline-block;";
-  // image_style += "float: none;";
   image_style += "margin: 0 auto;"; //changed
   image_style += "padding: 0;";
   image_style += "max-width: 900px;"; //changed
+  image_style += "width: 100%;"; //changed
+  image_style += "z-index: 3;"; //changed
+  image_style += "position: relative;"; //changed
 
   let cp_image_style = "";
-  cp_image_style = "display: inline-block;";
-  cp_image_style = "margin: 0;";
-  cp_image_style = "padding: 0;";
-  cp_image_style = "width: 100%;";
+  cp_image_style += "display: inline-block;";
+  cp_image_style += "margin: 0;";
+  cp_image_style += "padding: 0;";
+  cp_image_style += "position: absolute;";
+  cp_image_style += "width: 100%;";
+  cp_image_style += "height: 100%;";
+  cp_image_style += "right: 0;";
+  cp_image_style += "bottom: 0;";
+  cp_image_style += "filter: blur(150px);";
+  cp_image_style += "transform: scale(1.2);";
+  cp_image_style += "z-index: 2;"; //changed
 
   let bullet_container_style = "";
   bullet_container_style += "display: block;";
@@ -65,7 +75,6 @@
   bullet_container_style += "margin: 0 auto;";
   bullet_container_style += "overflow: hidden;";
   bullet_container_style += "padding: 0;";
-  bullet_container_style += "transform: translateY(-2em);";
   bullet_container_style += "width: fit-content;";
   bullet_container_style += "width: -moz-fit-content;";
   bullet_container_style += "width: -webkit-fit-content;";
@@ -75,7 +84,8 @@
   bullet_list_style += "float: left;";
   bullet_list_style += "font-size: 5em;";
   bullet_list_style += "line-height: .33em;";
-  bullet_list_style += "margin: 0 .1em;";
+  bullet_list_style += "margin: .1em;";
+   
 
   for( let g = 0; g < gal.length; g += 1) {
     let imgs = gal[g].children,
@@ -97,7 +107,9 @@
     // And create bullet item for each image
     while( imgs.length > 0 ) {
       let image = imgs[0];
+      let cp_image = image.cloneNode( false );
       image.style.cssText = image_style;
+      cp_image.style.cssText = cp_image_style;
 
       // Create image container
       let img_container = document.createElement("div");
@@ -146,6 +158,7 @@
 
       // Move image in the container
       // container.appendChild(image);
+      img_container.appendChild(cp_image);
       img_container.appendChild(image);
       container.appendChild(img_container);
       

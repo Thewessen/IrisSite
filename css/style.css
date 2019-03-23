@@ -9,6 +9,13 @@
        url("./fonts/DomainSerif-Regular.tff") format("truetype"),
        url("./fonts/DomainSerif-Regular.otf") format("opentype");
 }
+#harpburger {
+  height:135px;
+  width:155px;
+  position:absolute;
+  top:0;
+  right:0;
+}
 html {
   font-family: orpheuspro, serif;
   font-size: 16px;
@@ -26,8 +33,58 @@ body {
   position: relative;
   /* padding-bottom: 100px; */
 }
+header {
+  display: block;
+  position: relative;
+}
+header > svg {
+  margin: 0 auto;
+  width: 100%;
+}
+footer {
+  display: block;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+footer > svg {
+  width: 100%;
+}
 main {
+  position: relative;
+  top: 0;
+  left: 0;
   padding-bottom: 100px;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+main > header {
+  padding: 2em;
+}
+main > header > * {
+  margin: 0;
+}
+.back_to_top {
+  margin: 4em auto;
+  max-width: 7rem;
+  cursor: pointer;
+}
+.back_to_top > a > svg {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+.back_to_top:hover > a > svg {
+  animation: backtop 1.5s linear infinite;
+}
+nav > ul {
+  text-align: left;
+  margin: 1em;
+  font-size: 1.5rem;
+}
+nav > ul > li {
+  cursor: pointer;
 }
 p {
   text-align: left;
@@ -46,6 +103,7 @@ h1 {
   font-weight: 400;
   text-align: center;
   font-style: italic;
+  margin: 0;
 }
 h2 {
   line-height: 1em;
@@ -74,24 +132,7 @@ h6 {
 ul {
   list-style-type: none;
   padding: 0;
-}
-header {
-  display: block;
-  position: relative;
-}
-header > svg {
-  margin: 0 auto;
-  width: 100%;
-}
-footer {
-  display: block;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
-footer > svg {
-  width: 100%;
+  margin: 0;
 }
 .flex-container {
   display: flex;
@@ -104,14 +145,6 @@ footer > svg {
 .flex-item img {
   display: block;
   width: 100%;
-}
-nav > ul {
-  text-align: left;
-  margin: 1em;
-  font-size: 1.5rem;
-}
-nav > ul > li {
-  cursor: pointer;
 }
 .navigation {
   text-align: left;
@@ -126,8 +159,6 @@ nav > ul > li {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100vh;
-  width: 100vw;
 }
 .picture_nav {
   padding: 0 1%;
@@ -138,23 +169,21 @@ nav > ul > li {
   cursor: pointer;
   background-color: transparent;
 }
-section {
-  min-height: 100%;
+article {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 2em auto;
 }
-.back_to_top {
-  margin: 4em auto;
-  max-width: 7rem;
-  cursor: pointer;
-}
-.back_to_top > a > svg {
-  width: 80%;
-  display: block;
-  margin: 0 auto;
-}
-.back_to_top:hover > a > svg {
-  animation: backtop 1.5s linear infinite;
+/* W3 recommendation for invisible content */
+/* Still readable by screenreaders */
+.invisible {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important; 
+  width: 1px !important; 
+  overflow: hidden;
 }
 .flavor {
   font-size: 1.5rem;
@@ -194,9 +223,9 @@ section {
 }
 .copyright {
   text-align: right;
-  /* float: right; */
 }
 .youtube_container {
+  margin: 0 auto;
   background-color: transparent;
   border-radius: 5px;
   display: block;
@@ -229,11 +258,8 @@ section {
 }
 /* Ipad or greater format */
 @media only screen and (min-width: 768px) {
-  main {
+  body {
     padding-bottom: 130px;
-  }
-  .back_to_top {
-    display: none;
   }
   .flex-item {
     width: 48%;

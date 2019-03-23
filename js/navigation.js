@@ -64,7 +64,7 @@ function animate( obj, prop, end, time, callback ) {
   }
 }
 // find root elements
-let nav = document.querySelector("nav");
+let nav = document.getElementById("menu");
 if ( nav ) {
   let lust = document.createElement('ul');
   // Create list items
@@ -92,9 +92,6 @@ if ( nav ) {
       list.addEventListener('click',() => {
         animate(lust.style,"opacity",0,100,() => {
           lust.style.display = "none";
-          voorstellingen.style.opacity = 0;
-          voorstellingen.style.display = "block";
-          animate(voorstellingen.style,"opacity",1,200)
         });
       });
       span.appendChild(content);
@@ -105,10 +102,4 @@ if ( nav ) {
   // add elements to the DOM
   nav.appendChild(lust);
 }
-
-let voorstellingen = document.getElementById('voorstellingen');
-if ( voorstellingen ) {
-}
-// Need somehow reset the State after burgericon is clicked
-nav.addEventListener('change',() => console.log("IM CHANGED"))
 })();

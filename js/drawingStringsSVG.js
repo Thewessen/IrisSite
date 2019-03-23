@@ -24,8 +24,8 @@ if ( !harpburger ) {
   console.warn("No svg with id='harpburger' detected. Unable to create click event.");
   return;
 }
-let art = document.querySelector("section"),
-    nav = document.querySelector("nav");
+let art = document.querySelector("main"),
+    nav = document.getElementById("menu");
 if( !art || !nav ) {
   console.warn("There are no article and/or nav tags to swap");
 }

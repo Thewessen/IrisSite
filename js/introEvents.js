@@ -25,5 +25,6 @@
 
   window.addEventListener("DOMContentLoaded", showIntro, false);
   window.addEventListener("click", showNav, false);
+  window.addEventListener("scroll", showNav, false);
   window.setTimeout(showNav, 5000);
 })()
