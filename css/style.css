@@ -31,7 +31,6 @@ body {
   margin: 0;
 	overflow-x: hidden;
   position: relative;
-  /* padding-bottom: 100px; */
 }
 header {
   display: block;
@@ -87,7 +86,6 @@ nav > ul > li {
   cursor: pointer;
 }
 p {
-  text-align: left;
   margin: 1rem auto;
   max-width: 34rem;
   padding: 0 1em;
@@ -106,13 +104,14 @@ h1 {
   margin: 0;
 }
 h2 {
-  line-height: 1em;
-  font-size: 1.5em;
-  font-weight: 500;
-  bottom: 0;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  font-size: 5rem;
+  font-weight: 400;
+  font-style: italic;
   margin: 0 auto;
   width: 100%;
-  text-align: center;
 }
 h5 {
   top: calc(100% * 2/3);
@@ -134,6 +133,10 @@ ul {
   padding: 0;
   margin: 0;
 }
+figcaption {
+  font-famile: "Domain Serif";
+  font-size: 100%;
+}
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -141,6 +144,7 @@ ul {
 .flex-item {
   width: 98%;
   margin: 1%;
+  position: relative;
 }
 .flex-item img {
   display: block;
@@ -170,7 +174,7 @@ ul {
   background-color: transparent;
 }
 article {
-  max-width: 900px;
+  max-width: 34rem;
   margin: 2em auto;
 }
 /* W3 recommendation for invisible content */
@@ -187,11 +191,6 @@ article {
 }
 .flavor {
   font-size: 1.5rem;
-}
-.credits {
-  text-align: left;
-  font-family: "Domain Serif";
-  margin: 1rem;
 }
 .quote {
   font-size: 1.5rem;
@@ -214,6 +213,8 @@ article {
 }
 .text {
   font-family: "Domain Serif";
+  margin: 1rem;
+  text-align: left;
 }
 .no_top_margin {
   margin-top: 0 !important;

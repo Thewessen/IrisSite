@@ -46,15 +46,20 @@
   img_container_style += "padding: 0;";
   img_container_style += "width: 100%;";
   img_container_style += "position: relative;";
+  img_container_style += "overflow: hidden;";
+  img_container_style += "background-position: center center;";
+  img_container_style += "background-size: 300%;";
+  img_container_style += "background-repeat: no-repeat;";
+  img_container_style += "background-attachment: fixed;";
 
   let image_style = "";
   image_style += "display: inline-block;";
-  image_style += "margin: 0 auto;"; //changed
+  image_style += "margin: 0 auto;";
   image_style += "padding: 0;";
-  image_style += "max-width: 900px;"; //changed
-  image_style += "width: 100%;"; //changed
-  image_style += "z-index: 3;"; //changed
-  image_style += "position: relative;"; //changed
+  image_style += "max-width: 34rem;";
+  image_style += "width: 100%;";
+  image_style += "z-index: 3;";
+  image_style += "position: relative;";
 
   let cp_image_style = "";
   cp_image_style += "display: inline-block;";
@@ -65,9 +70,10 @@
   cp_image_style += "height: 100%;";
   cp_image_style += "right: 0;";
   cp_image_style += "bottom: 0;";
-  cp_image_style += "filter: blur(150px);";
-  cp_image_style += "transform: scale(1.2);";
-  cp_image_style += "z-index: 2;"; //changed
+  cp_image_style += "z-index: 2;";
+  cp_image_style += "image-rendering: pixelated;";
+  cp_image_style += "transform: scale(3) translateY(33%);";
+  cp_image_style += "filter: brightness(0.7);";
 
   let bullet_container_style = "";
   bullet_container_style += "display: block;";
@@ -82,7 +88,7 @@
   let bullet_list_style = "";
   bullet_list_style += "cursor: pointer;";
   bullet_list_style += "float: left;";
-  bullet_list_style += "font-size: 5em;";
+  bullet_list_style += "font-size: 4rem;";
   bullet_list_style += "line-height: .33em;";
   bullet_list_style += "margin: .1em;";
    
@@ -114,6 +120,7 @@
       // Create image container
       let img_container = document.createElement("div");
       img_container.style.cssText = img_container_style;
+      // img_container.style.backgroundImage = "url(" + image.src + ")";
 
       // Create bullet list item
       let bul = document.createElement("li");
