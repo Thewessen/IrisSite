@@ -39,6 +39,10 @@
   container_style += "white-space:nowrap;";
   container_style += "scroll-behavior:smooth;";
   container_style += "line-height:0;";
+  container_style += "background-position: center top;";
+  container_style += "background-size: 500%;";
+  container_style += "background-repeat: no-repeat;";
+  // container_style += "background-attachment: fixed;";
 
   let img_container_style = "";
   img_container_style += "display: inline-block;";
@@ -47,10 +51,12 @@
   img_container_style += "width: 100%;";
   img_container_style += "position: relative;";
   img_container_style += "overflow: hidden;";
-  img_container_style += "background-position: center center;";
-  img_container_style += "background-size: 300%;";
-  img_container_style += "background-repeat: no-repeat;";
-  img_container_style += "background-attachment: fixed;";
+  img_container_style += "background-color: transparent;";
+  img_container_style += "background-color: rgba(0,0,0,0.5);";
+  // img_container_style += "background-position: center top;";
+  // img_container_style += "background-size: 300%;";
+  // img_container_style += "background-repeat: no-repeat;";
+  // img_container_style += "background-attachment: fixed;";
 
   let image_style = "";
   image_style += "display: inline-block;";
@@ -61,19 +67,19 @@
   image_style += "z-index: 3;";
   image_style += "position: relative;";
 
-  let cp_image_style = "";
-  cp_image_style += "display: inline-block;";
-  cp_image_style += "margin: 0;";
-  cp_image_style += "padding: 0;";
-  cp_image_style += "position: absolute;";
-  cp_image_style += "width: 100%;";
-  cp_image_style += "height: 100%;";
-  cp_image_style += "right: 0;";
-  cp_image_style += "bottom: 0;";
-  cp_image_style += "z-index: 2;";
-  cp_image_style += "image-rendering: pixelated;";
-  cp_image_style += "transform: scale(3) translateY(33%);";
-  cp_image_style += "filter: brightness(0.7);";
+  // let cp_image_style = "";
+  // cp_image_style += "display: inline-block;";
+  // cp_image_style += "margin: 0;";
+  // cp_image_style += "padding: 0;";
+  // cp_image_style += "position: absolute;";
+  // cp_image_style += "width: 100%;";
+  // cp_image_style += "height: 100%;";
+  // cp_image_style += "right: 0;";
+  // cp_image_style += "bottom: 0;";
+  // cp_image_style += "z-index: 2;";
+  // cp_image_style += "image-rendering: pixelated;";
+  // cp_image_style += "transform: scale(3) translateY(33%);";
+  // cp_image_style += "filter: brightness(0.7);";
 
   let bullet_container_style = "";
   bullet_container_style += "display: block;";
@@ -101,6 +107,7 @@
     // Create container (needed for scroll)
     let container = document.createElement("div");
     container.style.cssText = container_style;
+    container.style.backgroundImage = "url(" + imgs[0].src + ")";
 
     // Create clickable bullet-list
     let list = document.createElement("ul");
@@ -113,9 +120,9 @@
     // And create bullet item for each image
     while( imgs.length > 0 ) {
       let image = imgs[0];
-      let cp_image = image.cloneNode( false );
+      // let cp_image = image.cloneNode( false );
       image.style.cssText = image_style;
-      cp_image.style.cssText = cp_image_style;
+      // cp_image.style.cssText = cp_image_style;
 
       // Create image container
       let img_container = document.createElement("div");
@@ -150,6 +157,9 @@
             let total = container.children.length;
             container.scrollLeft = bul.nr * dist / total;
           }
+          setTimeout(() => {
+            container.style.backgroundImage = "url(" + this.img.querySelector("img").src + ")";
+          },300);
       }
 
       // Add click event too bullet
@@ -165,7 +175,7 @@
 
       // Move image in the container
       // container.appendChild(image);
-      img_container.appendChild(cp_image);
+      // img_container.appendChild(cp_image);
       img_container.appendChild(image);
       container.appendChild(img_container);
       
@@ -219,6 +229,9 @@
       } else if ( typeof container.scrollLeft === "number" ) {
         container.scrollLeft = 0;
       }
+      setTimeout(() => {
+        container.style.backgroundImage = "url(" + current.img.querySelector("img").src + ")";
+      },bullets.length*100);
     }
 
     // A click on container will reset slide-show

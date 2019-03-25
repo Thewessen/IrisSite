@@ -175,7 +175,7 @@ let st1, st2, st3 = {};
 
 // Set all the proper styles
 art.style.opacity = 1;
-art.style.display = "block";
+art.style.display = "flex";
 nav.style.opacity = 0;
 nav.style.display = "none";
 
@@ -208,7 +208,7 @@ document.getElementById("harpburger").addEventListener(
       nav.style.display = "none";
       animate( art.style, "opacity", 1, 100 );
       animate( st2.style, "opacity", 1, 100 );
-      art.style.display = "block";
+      art.style.display = "flex";
       isOpen = true;
     });
   }
