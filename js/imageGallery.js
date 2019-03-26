@@ -52,7 +52,7 @@
   img_container_style += "position: relative;";
   img_container_style += "overflow: hidden;";
   img_container_style += "background-color: transparent;";
-  img_container_style += "background-color: rgba(0,0,0,0.5);";
+  img_container_style += "background-color: rgba(0,0,0,0.3);";
   // img_container_style += "background-position: center top;";
   // img_container_style += "background-size: 300%;";
   // img_container_style += "background-repeat: no-repeat;";

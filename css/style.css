@@ -84,11 +84,13 @@ main > header > * {
 .back_to_top {
   cursor: pointer;
   margin: 4em auto;
-  max-width: 7rem;
+  flex: 1 100%;
+  order: 7;
 }
 .back_to_top > a > svg {
   display: block;
   margin: 0 auto;
+  max-width: 7rem;
   width: 80%;
 }
 .back_to_top:hover > a > svg {
@@ -197,6 +199,10 @@ article {
 }
 aside {
   flex: 1 100%;
+  margin: 2em 1em;
+}
+aside > ul {
+  margin: 2em auto;
 }
 /* W3 recommendation for invisible content */
 /* Still readable by screenreaders */
@@ -234,7 +240,6 @@ aside {
 }
 .text {
   font-family: "Domain Serif", serif;
-  margin: 1rem;
   text-align: left;
 }
 .no_top_margin {
