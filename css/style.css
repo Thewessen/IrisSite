@@ -4,10 +4,20 @@
 }
 @font-face {
   font-family: "Domain Serif";
-  src: url("./fonts/DomainSerif-Regular.woff2") format("woff2"),
+  src: url("./fonts/DomainSerif-Regular.eot?iefix") format("embedded-opentype"),
+       url("./fonts/DomainSerif-Regular.woff2") format("woff2"),
        url("./fonts/DomainSerif-Regular.woff") format("woff"),
        url("./fonts/DomainSerif-Regular.tff") format("truetype"),
-       url("./fonts/DomainSerif-Regular.otf") format("opentype");
+       url("./fonts/DomainSerif-Regular.otf") format("opentype"),
+       url("./fonts/DomainSerif-Regular.svg#svgFontName") format("svg");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("./fonts/CormorantGaramond-Regular.eot?iefix") format("embedded-opentype"),
+       url("./fonts/CormorantGaramond-Regular.woff2") format("woff2"),
+       url("./fonts/CormorantGaramond-Regular.woff") format("woff"),
+       url("./fonts/CormorantGaramond-Regular.ttf") format("truetype"),
+       url("./fonts/CormorantGaramond-Regular.svg#svgFontName") format("svg");
 }
 @font-face {
   font-family: "Almost Orpheus";
@@ -35,7 +45,7 @@
 html {
   background-color: rgb(241,241,241);
   color: rgb(14,14,14);
-  font-family:orpheuspro, serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 16px;
   margin: 0;
 	overflow-x: hidden;
@@ -69,8 +79,8 @@ footer > svg {
 main {
   display: flex;
   flex-flow: row wrap;
-  min-height: 100vh;
-  min-width: 100vw;
+  /* min-height: 100vh; */
+  /* min-width: 100vw; */
   padding-bottom: 100px;
   position: relative;
 }

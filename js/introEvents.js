@@ -3,7 +3,7 @@
   let nav = document.querySelector("nav");
   let header = document.getElementById("top");
   let footer = document.getElementById("bottom");
-  let main = document.querySelector("main");
+  let body = document.body;
   let burger = document.getElementById("harpburger")
 
   function showNav() {
@@ -11,20 +11,26 @@
     burger.fireEvent ?
     burger.fireEvent(new Event("click")) :
     burger.dispatchEvent(new Event("click"));
+
+    // Remove existing events
     window.removeEventListener("click", showNav, false);
+    window.removeEventListener("scroll", showNav, false);
+    window.clearTimeout(id);
     header.style.display = "block";
     footer.style.display = "block";
-    main.className = "";
+
+    // Remove background image
+    body.className = "";
   };
 
   function showIntro() {
     header.style.display = "none";
     footer.style.display = "none";
-    main.className = "intro";
+    body.className = "intro";
   };
 
   window.addEventListener("DOMContentLoaded", showIntro, false);
   window.addEventListener("click", showNav, false);
   window.addEventListener("scroll", showNav, false);
-  window.setTimeout(showNav, 5000);
+  let id = window.setTimeout(showNav, 5000);
 })()

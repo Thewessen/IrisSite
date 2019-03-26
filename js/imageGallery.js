@@ -11,9 +11,9 @@
 // example:
 //
 // <image-gallery>
-//   <img src="flower.jpg" />
-//   <img src="dog.jpg" />
-//   <img src="kitten.jpg" />
+//   <img src="flower.jpg" alt="..." />
+//   <img src="dog.jpg" alt="..." />
+//   <img src="kitten.jpg" alt="..." />
 // </image-gallery>
 //
 // Note:
@@ -44,19 +44,19 @@
   container_style += "background-repeat: no-repeat;";
   // container_style += "background-attachment: fixed;";
 
-  let img_container_style = "";
-  img_container_style += "display: inline-block;";
-  img_container_style += "margin: 0;";
-  img_container_style += "padding: 0;";
-  img_container_style += "width: 100%;";
-  img_container_style += "position: relative;";
-  img_container_style += "overflow: hidden;";
-  img_container_style += "background-color: transparent;";
-  img_container_style += "background-color: rgba(0,0,0,0.3);";
-  // img_container_style += "background-position: center top;";
-  // img_container_style += "background-size: 300%;";
-  // img_container_style += "background-repeat: no-repeat;";
-  // img_container_style += "background-attachment: fixed;";
+  let figure_style = "";
+  figure_style += "display: inline-block;";
+  figure_style += "margin: 0;";
+  figure_style += "padding: 0;";
+  figure_style += "width: 100%;";
+  figure_style += "position: relative;";
+  figure_style += "overflow: hidden;";
+  figure_style += "background-color: transparent;";
+  figure_style += "background-color: rgba(0,0,0,0.3);";
+  // figure_style += "background-position: center top;";
+  // figure_style += "background-size: 300%;";
+  // figure_style += "background-repeat: no-repeat;";
+  // figure_style += "background-attachment: fixed;";
 
   let image_style = "";
   image_style += "display: inline-block;";
@@ -125,9 +125,9 @@
       // cp_image.style.cssText = cp_image_style;
 
       // Create image container
-      let img_container = document.createElement("div");
-      img_container.style.cssText = img_container_style;
-      // img_container.style.backgroundImage = "url(" + image.src + ")";
+      let figure = document.createElement("figure");
+      figure.style.cssText = figure_style;
+      // figure.style.backgroundImage = "url(" + image.src + ")";
 
       // Create bullet list item
       let bul = document.createElement("li");
@@ -137,7 +137,7 @@
 
       // Reference the bullet to corresponding img container
       // bul.img = image;
-      bul.img = img_container;
+      bul.img = figure;
       bul.nr = index;
       index += 1;
 
@@ -175,9 +175,9 @@
 
       // Move image in the container
       // container.appendChild(image);
-      // img_container.appendChild(cp_image);
-      img_container.appendChild(image);
-      container.appendChild(img_container);
+      // figure.appendChild(cp_image);
+      figure.appendChild(image);
+      container.appendChild(figure);
       
       // Move bullet in list
       list.appendChild(bul);
