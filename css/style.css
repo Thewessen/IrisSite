@@ -37,8 +37,8 @@ html, body, h1, main > header > * {
 h2, header > svg, main > header, .back_to_top > a > svg, .picture_nav, .quote img {
   margin: 0 auto;
 }
-article, aside > ul, .quote {
-  margin: 2em auto;
+article, aside > ul, aside > p, .quote {
+  margin: 2rem auto;
 }
 h5, h6 {
   margin: 0 1rem;
@@ -272,6 +272,14 @@ aside {
   aside.right {
     order: 3;
   }
+  .quote {
+    text-align: left;
+    padding-right: 0;
+    padding-left: auto;
+  }
+  .quote img {
+    margin: 0;
+  }
   .flex-item {
     width: 48%;
   }
@@ -281,9 +289,6 @@ aside {
 }
 /* medium desktop or greater format */
 @media only screen and (min-width: 992px) {
-  .flex-item {
-    width: 31%;
-  }
   html {
     font-size: 18px;
   }
@@ -291,7 +296,7 @@ aside {
 /* large desktops */
 @media only screen and (min-width: 1200px) {
   .flex-item {
-    width: 23%;
+    width: 31%;
   }
   html {
     font-size: 20px;

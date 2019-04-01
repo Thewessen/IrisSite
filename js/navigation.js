@@ -1,28 +1,16 @@
 (function() {
 let indices = [
   {
-      link:   './voorstellingen.html',
-      content:'zaal voorstellingen'
+      link:   './zaal.html',
+      content:'zaal theater'
   },{
+      link:   './locatie.html',
       content:'locatie projecten'
   },{
-      link:   './biografie.html',
+      // link:   './biografie.html',
       content:'biografie'
   },{
-      link:   './contact.html',
-      content:'contact'
-  }
-];
-let tiles = [
-  {
-      content:'Castor & Pollux'
-  },{
-      content:'Joris en de Toverdrank'
-  },{
-      link:   './biografie.html',
-      content:'biografie'
-  },{
-      link:   './contact.html',
+      // link:   './contact.html',
       content:'contact'
   }
 ];
