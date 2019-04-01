@@ -231,7 +231,7 @@
       }
       setTimeout(() => {
         container.style.backgroundImage = "url(" + current.img.querySelector("img").src + ")";
-      },bullets.length*100);
+      },bullets.length*50);
     }
 
     // A click on container will reset slide-show

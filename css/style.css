@@ -19,77 +19,69 @@
        url("./fonts/CormorantGaramond-Regular.ttf") format("truetype"),
        url("./fonts/CormorantGaramond-Regular.svg#svgFontName") format("svg");
 }
-@font-face {
-  font-family: "Almost Orpheus";
-  src: url("./fonts/OPTIBauerText-Initials.otf") format("opentype");
-}
-@font-face {
-  font-family: "Cinzel Regular";
-  src: url("./fonts/Cinzel-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Cinzel Black";
-  src: url("./fonts/Cinzel-Black.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Cinzel Bold";
-  src: url("./fonts/Cinzel-Bold.ttf") format("truetype");
-}
 #harpburger {
   height:135px;
-  position:absolute;
   right:0;
   top:0;
   width:155px;
+}
+body, main, header, .flex-item, .youtube_container {
+  position: relative;
+}
+h2, h5, footer, #harpburger {
+  position: absolute;
+}
+html, body, h1, main > header > * {
+  margin: 0;
+}
+h2, header > svg, main > header, .back_to_top > a > svg, .picture_nav, .quote img {
+  margin: 0 auto;
+}
+article, aside > ul, .quote {
+  margin: 2em auto;
+}
+h5, h6 {
+  margin: 0 1rem;
+}
+h5, ul {
+  padding: 0;
+}
+.back_to_top > a > svg, .flex-item img, .quote img, .youtube_container {
+  display: block;
+}
+main, .flex-container {
+  display: flex;
+  flex-flow: row wrap;
 }
 html {
   background-color: rgb(241,241,241);
   color: rgb(14,14,14);
   font-family: "Cormorant Garamond", serif;
   font-size: 16px;
-  margin: 0;
 	overflow-x: hidden;
 }
 body {
   font-size: 100%;
-  margin: 0;
   min-height: 100vh;
 	overflow-x: hidden;
-  position: relative;
   text-align: center;
 }
-header {
-  display: block;
-  position: relative;
-}
 header > svg {
-  margin: 0 auto;
   width: 100%;
 }
 footer {
   bottom: 0;
-  display: block;
   left: 0;
-  position: absolute;
   width: 100%;
 }
 footer > svg {
   width: 100%;
 }
 main {
-  display: flex;
-  flex-flow: row wrap;
-  /* min-height: 100vh; */
-  /* min-width: 100vw; */
   padding-bottom: 100px;
-  position: relative;
 }
 main > header {
-  margin: 0 auto;
   padding: 2em;
-}
-main > header > * {
-  margin: 0;
 }
 .back_to_top {
   cursor: pointer;
@@ -98,8 +90,6 @@ main > header > * {
   order: 7;
 }
 .back_to_top > a > svg {
-  display: block;
-  margin: 0 auto;
   max-width: 7rem;
   width: 80%;
 }
@@ -128,7 +118,6 @@ h1 {
   font-size: 4rem;
   font-style: italic;
   font-weight: 400;
-  margin: 0;
   text-align: center;
   width: 100%;
 }
@@ -137,8 +126,6 @@ h2 {
   font-style: italic;
   font-weight: 400;
   left: 0;
-  margin: 0 auto;
-  position: absolute;
   top: 40%;
   width: 100%;
 }
@@ -147,36 +134,25 @@ h5 {
   font-size: 1.3rem;
   font-weight: 500;
   left: 0;
-  margin: 0 1em;
-  padding: 0;
-  position: absolute;
   text-transform: uppercase;
   top: calc(100% * 2/3);
 }
 h6 {
   font-size: .8rem;
-  margin: 0 1em;
 }
 ul {
   list-style-type: none;
   margin: 1rem auto;
-  padding: 0;
 }
 figcaption {
   font-family: "Domain Serif", serif;
   font-size: 100%;
 }
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
 .flex-item {
   margin: 1%;
-  position: relative;
   width: 98%;
 }
 .flex-item img {
-  display: block;
   width: 100%;
 }
 .navigation {
@@ -194,7 +170,6 @@ figcaption {
   background-size: cover;
 }
 .picture_nav {
-  margin: 0 auto;
   max-width: 1440px;
   padding: 0 1%;
 }
@@ -204,15 +179,11 @@ figcaption {
 }
 article {
   flex: 1 100%;
-  margin: 2em auto;
   max-width: 34rem;
 }
 aside {
   flex: 1 100%;
   margin: 2em 1em;
-}
-aside > ul {
-  margin: 2em auto;
 }
 /* W3 recommendation for invisible content */
 /* Still readable by screenreaders */
@@ -232,7 +203,6 @@ aside > ul {
 .quote {
   cursor: pointer;
   font-size: 1.5rem;
-  margin: 2em auto;
   max-width: 24rem;
   padding: 0 1em;
   text-align: center;
@@ -244,19 +214,11 @@ aside > ul {
 }
 .quote img {
   border-bottom: 1px solid black;
-  display: block;
   height: 2rem;
-  margin: 0 auto;
 }
 .text {
   font-family: "Domain Serif", serif;
   text-align: left;
-}
-.no_top_margin {
-  margin-top: 0 !important;
-}
-.no_bottom_margin {
-  margin-bottom: 0 !important;
 }
 .copyright {
   text-align: right;
@@ -264,10 +226,8 @@ aside > ul {
 .youtube_container {
   background-color: transparent;
   border-radius: 5px;
-  display: block;
   margin: 0 auto;
   padding-top: 50.65%;
-  position: relative;
 }
 .st_black {
   stroke: rgb(35,31,32);

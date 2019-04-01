@@ -2,7 +2,7 @@
 let indices = [
   {
       link:   './voorstellingen.html',
-      content:'voorstellingen'
+      content:'zaal voorstellingen'
   },{
       content:'locatie projecten'
   },{
