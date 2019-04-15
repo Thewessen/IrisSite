@@ -7,6 +7,9 @@ let indices = [
       link:   './locatie.html',
       content:'locatie projecten'
   },{
+      link:   './agenda.html',
+      content:'agenda'
+  },{
       // link:   './biografie.html',
       content:'biografie'
   },{

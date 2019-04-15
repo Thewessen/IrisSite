@@ -122,12 +122,17 @@ h1 {
   width: 100%;
 }
 h2 {
-  font-size: 5rem;
-  font-style: italic;
-  font-weight: 400;
-  left: 0;
-  top: 40%;
+  display: inline-block;
+  position: initial;
+  font-size: 2rem;
+  font-weight: 200;
+  text-transform: uppercase;
   width: 100%;
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: 200;
+  margin: 1rem 0;
 }
 h5 {
   float: left;
@@ -152,8 +157,28 @@ figcaption {
   margin: 1%;
   width: 98%;
 }
-.flex-item img {
+.flex-agenda {
+  margin: 1%;
+  width: 98%;
+}
+.flex-agenda figcaption {
+  text-align: left;
+}
+.flex-agenda figcaption > p {
+  padding: 0;
+  margin: 0;
+}
+.flex-agenda figcaption a {
+  text-decoration: underline;
+}
+.flex-item img, .flex-agenda img {
   width: 100%;
+}
+.seperator {
+  width: 100%;
+}
+.seperator > img {
+  height: 6rem;
 }
 .navigation {
   font-size: 1.5rem;
@@ -297,6 +322,12 @@ aside {
 @media only screen and (min-width: 1200px) {
   .flex-item {
     width: 31%;
+  }
+  .flex-agenda {
+    width: 48%;
+  }
+  .seperator:nth-child(4n+2) {
+    display: none;
   }
   html {
     font-size: 20px;
