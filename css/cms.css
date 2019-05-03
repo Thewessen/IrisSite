@@ -1,0 +1,87 @@
+#dropbox {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-image: url('../img/IVDE_upload.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: white;
+  overflow-y: scroll;
+}
+#dropbox > figure {
+  margin: 2rem;
+  display: inline-block;
+}
+#dropbox > figure > img {
+  width: 240px;
+  height: 160px;
+}
+section {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+.h1 {
+  margin: 0;
+  display: inline-block;
+  font-family: "Cormorant Garamond";
+  font-size: 4rem;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  width: 100%;
+}
+input.flavor {
+  text-align: center;
+  font-family: "Cormorant Garamond";
+}
+input[type="number"] {
+  font-size: 100%;
+  font-family: monospace;
+}
+.mandatory {
+  border: 1px solid rgb(237,28,36);
+}
+.optional {
+  border: 1px dashed rgb(53,79,162);
+}
+textarea {
+  margin: 1rem auto;
+  max-width: 34rem;
+}
+textarea.text {
+  padding: 0 1em;
+  font-family: "Domain Serif", serif;
+  text-align: left;
+  font-size: 100%;
+}
+textarea.flavor {
+  text-align: center;
+  font-family: "Cormorant Garamond";
+}
+textarea.quote {
+  display: block;
+  font-family: "Cormorant Garamond";
+  width: 100%;
+}
+select {
+  display: block;
+  font-size: 90%;
+  font-family: "Domain Serif", serif;
+}
+.rating {
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin: 0;
+}
+.input_rating {
+}
+.rating > img {
+  display: inline-block;
+  text-decoration: none;
+  width: 1rem;
+  margin: 0.2rem;
+  border-botom: 0px solid black;
+}
+

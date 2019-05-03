@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="nl" xml:lang="nl">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="language" content="Dutch"/>
+    <meta name="description"
+          content="A template page for adding content too the site"/>
+    <meta name="author" content="Samuel Thewessen"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/cms.css"/>
+    <title>Content Managment System</title>
+  </head>
+  <body>
+    <header id="top">
+      <svg xmlns="http://www.w3.org/2000/svg" height="135">
+        <g id="header">
+          <!-- Javascript gets inserted here -->
+        </g>
+      </svg>
+      <h5 translate="no">Iris van der Ende</h5>
+    </header>
+    <main itemscope itemtype="https://schema.org/CreativeWork">
+      <meta itemprop="about" content="Verte" />
+      <meta itemprop="schemaVersion" content="http://schema.org/version/2.0" />
+      <meta itemprop="accessMode" content="auditory, textual, visual" />
+      <meta itemprop="accessModeSufficient" content="auditory, visual" />
+      <meta itemprop="accessibilitySummary" 
+        content="This pages consists of a part of the creative work. This
+                 work can only be viewed to it's full when performed in a 
+                 theater." />
+      <span itemscope itemtype="https://schema.org/Language"
+                      itemprop="inLanguage">
+        <meta itemprop="name" content="Dutch" />
+        <meta itemprop="alternateName" content="nl-NL" />
+      </span>
+      <header>
+        <input class="h1 mandatory" type="text" size="14" maxlength="14"
+        name="<? print $page ?>[body][headline]" 
+        placeholder="Titel" />
+        <ul class="flavor" itemprop="text">
+          <li>
+            <input class="flavor optional" type="text" 
+                   maxlength="78"
+                   placeholder="subtitel" />
+          </li>
+          <li>
+            <input class="flavor optional" type="text" 
+                   maxlength="78"
+                   placeholder="subtitel" />
+          </li>
+          <li>
+            <input class="flavor optional" type="text" 
+                   maxlength="78"
+                   placeholder="subtitel" />
+          </li>
+        </ul>
+      </header>
+      <section>
+        <h3 class="invisible">Foto's</h3>
+        <input id="upload" type="file" multiple accept="image/*" style="display:none" />
+        <div id="dropbox" class="flex-container optional">
+          <h3>Image-gallery</h3>
+        </div>
+      </section>
+      <article>
+        <h3 class="invisible">Publiciteits tekst</h3>
+        <textarea class="text mandatory" cols="78" rows="12" 
+          name="<? print $page ?>[body][description]"
+          value="<? print $page['body']['title'] ?>"
+          placeholder="Publiciteits tekst"></textarea>
+        <h3 class="invisible">Theater tekst</h3>
+        <textarea class="flavor optional" cols="40" rows="8"
+          name="<? print $page ?>[extra][text]"
+          value="<? print $page['extra']['text'] ?>"
+          placeholder="Theatertekst/smaaktekst"></textarea>
+        <h3 class="invisible">Video teaser</h3>
+        <input type="text" placeholder="url" 
+               style="width:90%;"
+               change="(e) => {
+                console.log(e.target);
+               }" />
+        <div itemprop="video" class="youtube_container">
+          <iframe src="https://player.vimeo.com/video/126351853"
+                  title="Verte teaser"
+                  style="width:100%; height: 100%; position: absolute; 
+                        top: 0; left: 0; scrolling: no;" 
+                  frameborder="0" allowfullscreen>
+          </iframe>
+        </div>
+      </article>
+      <aside class="right">
+        <h3 class="invisible">Quotes</h3>
+        <p class="quote">
+          <textarea class="quote optional" rows="12" 
+            name="<? print $page ?>[extra][quote]"
+            value="<? print $page['extra']['quote'] ?>"
+            placeholder="Quote"></textarea>
+          <span class="rating">
+            <input class="input_rating" type="number" min="0" max="5" />
+          </span>
+          <select>
+            <option value="volkskrant">de Volkskrant</option>
+            <option value="trouw">Trouw</option>
+            <option value="telegraaf">Telegraaf</option>
+            <option value="theaterkrant">Theaterkrant</option>
+          </select>
+        </p>
+      </aside>
+      <aside class="text left">
+        <!-- <meta itemprop="audience" content="" /> -->
+        <!-- <meta itemprop="contentLocation" content="" /> -->
+        <!-- <meta itemprop="dateCreated" content="" /> -->
+        <!-- <meta itemprop="exampleOfWork" content="" /> -->
+        <!-- <meta itemprop="keywords" content="" /> -->
+        <!-- <meta itemprop="isBasedOn" content="" /> -->
+        <!-- <meta itemprop="isPartOf" content="" /> -->
+        <!-- <meta itemprop="mentions" content="" /> -->
+
+        <!-- <meta itemprop="editor" content="" /> -->
+        <!-- <meta itemprop="producer" content="" /> -->
+        <!-- <meta itemprop="provider" content="" /> -->
+        <!-- <meta itemprop="funder" content="" /> -->
+        <!-- <meta itemprop="sponsor" content="" /> -->
+
+        <!-- Nog toe te voegen aan de website!! -->
+        <meta itemprop="sourceOrganization" content="de Parade & Theater Kikker" />
+        <meta itemprop="typicalAgeRange" content="9-" />
+        <meta itemprop="isFamilyFriendly" content=true />
+        <meta itemprop="timeRequired" content="45min" />
+        <!-- <meta itemprop="locationCreated" content="" /> -->
+        <!-- <meta itemprop="genre" content="Social" /> -->
+        <h3 class="invisible">Credits</h3>
+        <ul>
+          <li>performers</li>
+          <li itemprop="creator" translate="no"><b>Iris van der Ende</b></li>
+          <li itemprop="creator" translate="no"><b>Bart van de Woestijne</b></li>
+          <li>dramaturgie</li>
+          <li itemprop="producer"><b>Tess Scholten</b></li>
+          <li>eindregie</li>
+          <li itemprop="editor" translate="no"><b>Marijn van der Jagt</b></li>
+          <li>vormgeving</li>
+          <li itemscope itemtype="https://schema.org/CreativeWork" itemprop="mentions" translate="no">
+            <meta itemprop="about" content="Graphic Designer" />
+            <b itemprop="creator">Serena Kloet</b>
+          </li>
+          <li>ondersteund door</li>
+          <li itemprop="funder" translate="no"><b>K.F. Hein fonds</b></li>
+          <li itemprop="funder"><b>Gemeente Utrecht</b></li>
+          <li>video</li> 
+          <li itemscope itemtype="https://schema.org/CreativeWork" itemprop="mentions" translate="no">
+            <meta itemprop="about" content="Video" />
+            <b itemprop="creator">balanslab.com</b>
+          </li>
+        </ul> 
+      </aside>
+      <nav id="back_to_top" class="back_to_top">
+          <h3 class="invisible">Back to top</h3>
+          <a href="#top">
+            <svg version="1.1" 
+                 id="back_img" 
+                 xmlns="http://www.w3.org/2000/svg" 
+                 xmlns:xlink="http://www.w3.org/1999/xlink" 
+                 x="0px" y="0px"
+                 viewBox="0 0 551.92 502.32" 
+                 style="enable-background:new 0 0 551.92 502.32;" 
+                 xml:space="preserve">
+            <style type="text/css">
+              .st0{fill:none;stroke:#2B4FA2;stroke-width:5.6693;}
+            </style>
+            <g>
+              <line class="st_blue" style="stroke-width:5.67" x1="52.55" y1="462.92" x2="276.69" y2="41.37"/>
+              <line class="st_blue" style="stroke-width:5.67" x1="499.47" y1="462.92" x2="275.33" y2="41.37"/>
+            </g>
+            </svg>
+            terug naar boven
+          </a>
+      </nav>
+    </main>
+    <nav id="menu" style="display:none">
+        <h3 class="invisible">Navigation</h3>
+      <!-- Javascript gets inserted here -->
+    </nav>
+    <footer id="bottom">
+      <h6 class="copyright">Iris van der Ende &copy; 2019</h6>
+      <svg xmlns="http://www.w3.org/2000/svg" height="90">
+        <g id="footer">
+          <!-- Javascript gets inserted here -->
+        </g>
+      </svg>
+    </footer>
+    <script src="./js/drawingStringsSVG.js"></script>
+    <script src="./js/upload_imgs.js"></script>
+    <script>
+      (function() {
+      let fields = document.querySelectorAll(".input_rating");
+      for( field of fields ) {
+        field.addEventListener('change',() => {
+          while(field.nextElementSibling) {
+            field.nextElementSibling.remove();
+          };
+          for( let i = 0; i <  parseInt(field.value); i += 1 ) {
+            let img = document.createElement('img');
+            img.src = "./img/IVDE_star.svg";
+            field.parentElement.appendChild(img);
+          };
+        }
+      )};
+      })()
+    </script>
+  </body>
+</html>

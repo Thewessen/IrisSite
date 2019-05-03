@@ -44,7 +44,6 @@ if ( !header ) {
 let harpburger = document.getElementById("harpburger")
 if ( !harpburger ) {
   console.warn("No svg with id='harpburger' detected. Unable to create click event.");
-  return;
 }
 let main = document.querySelector("main"),
     nav = document.getElementById("menu");
@@ -237,8 +236,8 @@ try {
 };
 window.addEventListener( "DOMContentLoaded", reCreateLines,
   onceSupported ? { once: true } : false );
-document.getElementById("harpburger").addEventListener(
-  "click", () =>  { isOpen ? closeMenu() : openMenu(); } );
+if( harpburger) { document.getElementById("harpburger").addEventListener(
+  "click", () =>  { isOpen ? closeMenu() : openMenu(); } ); };
 window.addEventListener( "resize", reCreateLines, false );
 window.addEventListener( "orientationchange", reCreateLines, false );
 })()
