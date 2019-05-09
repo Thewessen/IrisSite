@@ -20,6 +20,10 @@ const header_width_breakpoint = 768,
       red_string_color = "rgb(237,28,36)",
       blue_string_color = "rgb(53,79,162)",
       white_string_color = "rgb(35,31,32)";
+      antime_slow = window.innerWidth < header_width_breakpoint ?
+                      75 : 100;
+      antime_fast = window.innerWidth < header_width_breakpoint ?
+                      150 : 200;
 
 // All elements needed
 // =================================
@@ -198,12 +202,12 @@ function createBurgerIcon( elem ) {
 function openMenu() {
   let sts = grabBurgerIcon();
   let delta = string_x1 - string_x2;
-  animate( nav.style, "opacity", 0, 200 );
-  animate( sts[2].x2.baseVal, "value", sts[2].getAttribute("x1") - delta, 200 );
-  animate( sts[0].x2.baseVal, "value", sts[0].getAttribute("x1") - delta, 200, () => {
+  animate( nav.style, "opacity", 0, antime_slow );
+  animate( sts[2].x2.baseVal, "value", sts[2].getAttribute("x1") - delta, antime_slow );
+  animate( sts[0].x2.baseVal, "value", sts[0].getAttribute("x1") - delta, antime_slow, () => {
     nav.style.display = "none";
-    animate( main.style, "opacity", 1, 100 );
-    animate( sts[1].style, "opacity", 1, 100 );
+    animate( main.style, "opacity", 1, antime_fast );
+    animate( sts[1].style, "opacity", 1, antime_fast );
     main.style.display = "flex";
     isOpen = true;
   });
@@ -211,12 +215,12 @@ function openMenu() {
 
 function closeMenu() {
   let sts = grabBurgerIcon();
-  animate( main.style, "opacity", 0, 100 );
-  animate( sts[1].style, "opacity", 0, 100, () => {
+  animate( main.style, "opacity", 0, antime_fast );
+  animate( sts[1].style, "opacity", 0, antime_fast, () => {
     main.style.display = "none";
-    animate( sts[0].x2.baseVal, "value", sts[2].getAttribute("x1"), 200 );
-    animate( sts[2].x2.baseVal, "value", sts[0].getAttribute("x1"), 200 );
-    animate( nav.style, "opacity", 1, 200 );
+    animate( sts[0].x2.baseVal, "value", sts[2].getAttribute("x1"), antime_slow );
+    animate( sts[2].x2.baseVal, "value", sts[0].getAttribute("x1"), antime_slow );
+    animate( nav.style, "opacity", 1, antime_slow );
     nav.style.display = "block";
     isOpen = false;
   });

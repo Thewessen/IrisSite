@@ -76,16 +76,17 @@ function handleFiles( files ) {
         if( width !== 1200 || height !== 800) {
           window.alert("An image for the imagegallery needs to be 1200x800 in size!");
           img.remove();
+          input.remove();
           upload.value = "";
-        } else {
-          let data = new FormData();
-          data.append('images[]', img.file );
-          fetch('images.php', {
-            method: "POST",
-            body: data
-          }).then( (resp) => {
-            console.log( resp );
-          });
+        // } else {
+        //   let data = new FormData();
+        //   data.append('images[]', img.file );
+        //   fetch('images.php', {
+        //     method: "POST",
+        //     body: data
+        //   }).then( (resp) => {
+        //     console.log( resp );
+        //   });
         };
       }, 250);
     } else {
