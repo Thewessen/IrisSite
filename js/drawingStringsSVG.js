@@ -21,9 +21,9 @@ const header_width_breakpoint = 768,
       blue_string_color = "rgb(53,79,162)",
       white_string_color = "rgb(35,31,32)";
       antime_slow = window.innerWidth < header_width_breakpoint ?
-                      75 : 100;
+                      60 : 200;
       antime_fast = window.innerWidth < header_width_breakpoint ?
-                      150 : 200;
+                      30 : 100;
 
 // All elements needed
 // =================================

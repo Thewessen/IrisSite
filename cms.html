@@ -12,6 +12,52 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
     <link rel="stylesheet" type="text/css" href="./css/cms.css"/>
     <title>Content Managment System</title>
+    <script>
+      function addElement(el) {
+        if( el === 'video' ) createVideo();
+        else console.warn("BAD!")
+      };
+      function createVideo() {
+        let main = document.getElementById('content'),
+            sep = document.getElementById('add_element');
+        let title = document.querySelector('main > header > input').value
+
+        // Creat and insert invisible heading
+        let h = document.createElement('h3');
+        let text = document.createTextNode("Video teaser")
+        h.appendChild(text)
+        h.setAttribute('class', 'invisible');
+        main.insertBefore(h, sep)
+
+        // Creat and insert inputfield
+        let url = document.createElement('input');
+        url.setAttribute('type', 'text');
+        url.setAttribute('placeholder', 'video url');
+        url.setAttribute('style', 'width:90%');
+        main.insertBefore(url, sep);
+
+        // Creat div/iframe for video content
+        let cont = document.createElement('div');
+        cont.setAttribute('class', 'youtube_container');
+        cont.setAttribute('itemprop', 'video');
+        let iframe = document.createElement('iframe');
+        let style = "width:100%;height:100%;position:absolute;top:0;left:0;scrolling:no;"
+        iframe.setAttribute('style', style);
+        iframe.setAttribute('title', title + ' teaser');
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allowfullscreen', '');
+        cont.appendChild(iframe)
+        main.insertBefore(cont, sep);
+        url.addEventListener('change',(e) => iframe.src = url.value );
+        
+        // Description input
+        let desc = document.createElement('input');
+        desc.setAttribute('type', 'text');
+        desc.setAttribute('placeholder', 'description');
+        desc.setAttribute('style', 'width:90%');
+        main.insertBefore(desc, sep);
+     };
+    </script>
   </head>
   <body>
     <header id="top">
@@ -61,15 +107,24 @@
       <section>
         <h3 class="invisible">Foto's</h3>
         <input id="upload" type="file" multiple accept="image/*" style="display:none" />
-        <div id="dropbox" class="flex-container optional">
+        <div id="dropbox" class="flex-container mandatory">
           <h3>Image-gallery</h3>
         </div>
       </section>
-      <article>
+      <article id="content">
+        <select style="display:inline-block" id="add_element">
+          <option value="text">Publiciteits tekst</option>
+          <option value="quote">Quote</option>
+          <option value="flavor">Flavor tekst</option>
+          <option value="audio">Audio</option>
+          <option value="video">Video</option>
+        </select>
+        <input type="button" value="add"
+         onclick="addElement(document.getElementById('add_element').value)"/>
         <h3 class="invisible">Publiciteits tekst</h3>
-        <textarea class="text mandatory" cols="78" rows="12" 
+        <textarea class="text optional" cols="78" rows="12" 
           name="<? print $page ?>[body][description]"
-          value="<? print $page['body']['title'] ?>"
+          value="<? print $page['body']['description'] ?>"
           placeholder="Publiciteits tekst"></textarea>
         <h3 class="invisible">Theater tekst</h3>
         <textarea class="flavor optional" cols="40" rows="8"
@@ -77,13 +132,16 @@
           value="<? print $page['extra']['text'] ?>"
           placeholder="Theatertekst/smaaktekst"></textarea>
         <h3 class="invisible">Video teaser</h3>
-        <input type="text" placeholder="url" 
+        <input type="text"
+               value=""
+               bind="teaser1"
+               placeholder="video url"
                style="width:90%;"
-               change="(e) => {
-                console.log(e.target);
-               }" />
+               onchange="document."
+               />
         <div itemprop="video" class="youtube_container">
-          <iframe src="https://player.vimeo.com/video/126351853"
+          <iframe id="teaser1"
+                  src="https://player.vimeo.com/video/126351853"
                   title="Verte teaser"
                   style="width:100%; height: 100%; position: absolute; 
                         top: 0; left: 0; scrolling: no;" 
