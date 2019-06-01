@@ -55,42 +55,42 @@ function animate( obj, prop, end, time, callback ) {
   }
 }
 // find root elements
-let nav = document.getElementById("menu");
+let nav = document.getElementById( 'menu' );
 if ( nav ) {
-  let lust = document.createElement('ul');
+  let lust = document.createElement( 'ul' );
   // Create list items
   for( let i = 0; i < indices.length; i += 1 ) {
     let span, link,
         content = document.createTextNode(indices[i].content) || "",
-        list = document.createElement('li');
+        list = document.createElement( 'li' );
 
     if(indices[i].link) {
-      link = document.createElement('a');
+      link = document.createElement( 'a' );
       link.href=indices[i].link;
-      link.appendChild(list);
+      link.appendChild( list );
     }
 
     if(content) {
-      span = document.createElement('span');
+      span = document.createElement( 'span' );
       function mouseEnter() {
           span.style.borderBottom='1px solid #1C1C1C';
       }
       function mouseLeave() {
           span.style.borderBottom='none';
       }
-      list.addEventListener('mouseenter',mouseEnter);
-      list.addEventListener('mouseleave',mouseLeave);
-      list.addEventListener('click',() => {
-        animate(lust.style,"opacity",0,100,() => {
+      list.addEventListener( 'mouseenter', mouseEnter );
+      list.addEventListener( 'mouseleave', mouseLeave );
+      list.addEventListener( 'click',() => {
+        animate( lust.style,"opacity",0,100,() => {
           lust.style.display = "none";
         });
       });
-      span.appendChild(content);
-      list.appendChild(span);
+      span.appendChild( content );
+      list.appendChild( span );
     }
-    lust.appendChild(link ? link : list);
+    lust.appendChild( link ? link : list );
   }
   // add elements to the DOM
-  nav.appendChild(lust);
+  nav.appendChild( lust );
 }
 })();

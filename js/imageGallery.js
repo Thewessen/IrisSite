@@ -42,7 +42,6 @@
   container_style += "background-position: center top;";
   container_style += "background-size: 500%;";
   container_style += "background-repeat: no-repeat;";
-  // container_style += "background-attachment: fixed;";
 
   let figure_style = "";
   figure_style += "display: inline-block;";
@@ -53,10 +52,6 @@
   figure_style += "overflow: hidden;";
   figure_style += "background-color: transparent;";
   figure_style += "background-color: rgba(0,0,0,0.3);";
-  // figure_style += "background-position: center top;";
-  // figure_style += "background-size: 300%;";
-  // figure_style += "background-repeat: no-repeat;";
-  // figure_style += "background-attachment: fixed;";
 
   let image_style = "";
   image_style += "display: inline-block;";
@@ -66,20 +61,6 @@
   image_style += "width: 100%;";
   image_style += "z-index: 3;";
   image_style += "position: relative;";
-
-  // let cp_image_style = "";
-  // cp_image_style += "display: inline-block;";
-  // cp_image_style += "margin: 0;";
-  // cp_image_style += "padding: 0;";
-  // cp_image_style += "position: absolute;";
-  // cp_image_style += "width: 100%;";
-  // cp_image_style += "height: 100%;";
-  // cp_image_style += "right: 0;";
-  // cp_image_style += "bottom: 0;";
-  // cp_image_style += "z-index: 2;";
-  // cp_image_style += "image-rendering: pixelated;";
-  // cp_image_style += "transform: scale(3) translateY(33%);";
-  // cp_image_style += "filter: brightness(0.7);";
 
   let bullet_container_style = "";
   bullet_container_style += "display: block;";
@@ -120,14 +101,11 @@
     // And create bullet item for each image
     while( imgs.length > 0 ) {
       let image = imgs[0];
-      // let cp_image = image.cloneNode( false );
       image.style.cssText = image_style;
-      // cp_image.style.cssText = cp_image_style;
 
       // Create image container
       let figure = document.createElement("figure");
       figure.style.cssText = figure_style;
-      // figure.style.backgroundImage = "url(" + image.src + ")";
 
       // Create bullet list item
       let bul = document.createElement("li");
@@ -136,7 +114,6 @@
       bul.appendChild(bul_text)
 
       // Reference the bullet to corresponding img container
-      // bul.img = image;
       bul.img = figure;
       bul.nr = index;
       index += 1;
@@ -174,8 +151,6 @@
       bullets.push(bul);
 
       // Move image in the container
-      // container.appendChild(image);
-      // figure.appendChild(cp_image);
       figure.appendChild(image);
       container.appendChild(figure);
       
