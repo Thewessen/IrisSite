@@ -3,280 +3,272 @@
 // and bullet-points for reference
 //
 // Add too the end of a html-page:
-//  <script src="imageGallery.js"></script>
+//  <script src='imageGallery.js'></script>
 // </body>
 //
-// Add an image-gallery-tag where you want 
-// inside the html-page, containing all the images, 
+// Add an image-gallery-tag where you want
+// inside the html-page, containing all the images,
 // example:
 //
 // <image-gallery>
-//   <img src="flower.jpg" alt="..." />
-//   <img src="dog.jpg" alt="..." />
-//   <img src="kitten.jpg" alt="..." />
+//   <img src='flower.jpg' alt='...' />
+//   <img src='dog.jpg' alt='...' />
+//   <img src='kitten.jpg' alt='...' />
 // </image-gallery>
 //
 // Note:
 // 'width: fit-content & -moz-fit-content'
 // might not be supported on all browsers
 
-(function() {
-  const cur_color = "rgb(205,182,82)";
-  const interval_timing = 5000; // In milliseconds
+(function () {
+  function isFunction (it) {
+    return Object.prototype.toString.call(it) === '[object Function]'
+  }
+
+  function isNumber (it) {
+    return Object.prototype.toString.call(it) === '[object Number]'
+  }
+
+  const currentColor = 'rgb(205,182,82)'
+  const intervalTiming = 5000 // In milliseconds
 
   // Use tags called <image-gallery> to initiate
-  let gal = document.querySelectorAll("image-gallery");
-  if ( !gal[0] ) {
-    console.warn("imageGallery.js loaded, but no <image-gallery> tag found!")
-    return;
+  let gal = document.querySelectorAll('image-gallery')
+  if (!gal[0]) {
+    console.warn('imageGallery.js loaded, but no <image-gallery> tag found!')
+    return
   }
 
   // All styles for the different elements
-  let container_style = "";
-  container_style += "margin:0;";
-  container_style += "overflow:hidden;";
-  container_style += "padding:0;";
-  container_style += "white-space:nowrap;";
-  container_style += "scroll-behavior:smooth;";
-  container_style += "line-height:0;";
-  container_style += "background-position: center top;";
-  container_style += "background-size: 500%;";
-  container_style += "background-repeat: no-repeat;";
+  const containerStyle = `
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    line-height: 0;
+    background-position: center top;
+    background-size: 500%;
+    background-repeat: no-repeat;
+  `
 
-  let figure_style = "";
-  figure_style += "display: inline-block;";
-  figure_style += "margin: 0;";
-  figure_style += "padding: 0;";
-  figure_style += "width: 100%;";
-  figure_style += "position: relative;";
-  figure_style += "overflow: hidden;";
-  figure_style += "background-color: transparent;";
-  figure_style += "background-color: rgba(0,0,0,0.3);";
+  const figureStyle = `
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    background-color: rgba(0,0,0,0.3);
+  `
 
-  let image_style = "";
-  image_style += "display: inline-block;";
-  image_style += "margin: 0 auto;";
-  image_style += "padding: 0;";
-  image_style += "max-width: 34rem;";
-  image_style += "width: 100%;";
-  image_style += "z-index: 3;";
-  image_style += "position: relative;";
+  const imageStyle = `
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 34rem;
+    width: 100%;
+    z-index: 3;
+    position: relative;
+  `
 
-  let bullet_container_style = "";
-  bullet_container_style += "display: block;";
-  bullet_container_style += "list-style-type: none;";
-  bullet_container_style += "margin: 0 auto;";
-  bullet_container_style += "overflow: hidden;";
-  bullet_container_style += "padding: 0;";
-  bullet_container_style += "width: fit-content;";
-  bullet_container_style += "width: -moz-fit-content;";
-  bullet_container_style += "width: -webkit-fit-content;";
+  const bulletContainerStyle = `
+    display: block;
+    list-style-type: none;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+    width: fit-content;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+  `
 
-  let bullet_list_style = "";
-  bullet_list_style += "cursor: pointer;";
-  bullet_list_style += "float: left;";
-  bullet_list_style += "font-size: 4rem;";
-  bullet_list_style += "line-height: .33em;";
-  bullet_list_style += "margin: .1em;";
-   
+  const bulletListStyle = `
+    cursor: pointer;
+    float: left;
+    font-size: 4rem;
+    line-height: .33em;
+    margin: .1em;
+  `
 
-  for( let g = 0; g < gal.length; g += 1) {
-    let imgs = gal[g].children,
-        bullets = [],
-        current = null;
+  // Some usefull functions
+  function scrollToNext (current) {
+    current.style.color = 'black'
+    if (current.nextElementSibling) {
+      current
+        .nextElementSibling
+        .scrollTo()
+    } else {
+      current
+        .parentElement
+        .firstElementChild
+        .scrollTo()
+    }
+  }
+
+  function scrollToPrev (current) {
+    current.style.color = 'black'
+    if (current.previousElementSibling) {
+      current
+        .previousElementSibling
+        .scrollTo()
+    } else {
+      current
+        .parentElement
+        .lastElementChild
+        .scrollTo()
+    }
+  }
+  for (let g of gal) {
+    let imgs = g.children
+    let bullets = []
+    g.current = null
 
     // Create container (needed for scroll)
-    let container = document.createElement("div");
-    container.style.cssText = container_style;
-    container.style.backgroundImage = "url(" + imgs[0].src + ")";
+    let container = document.createElement('div')
+    container.style.cssText = containerStyle
+    container.style.backgroundImage = `url(${imgs[0].src})`
 
     // Create clickable bullet-list
-    let list = document.createElement("ul");
-    list.style.cssText = bullet_container_style;
+    let list = document.createElement('ul')
+    list.style.cssText = bulletContainerStyle
 
     // Necessary for IE ref (see bottom script)
-    let index = 0;
-    //
+    let index = 0
+
     // Move images too container
     // And create bullet item for each image
-    while( imgs.length > 0 ) {
-      let image = imgs[0];
-      image.style.cssText = image_style;
+    while (imgs.length > 0) {
+      let image = imgs[0]
+      image.style.cssText = imageStyle
 
       // Create image container
-      let figure = document.createElement("figure");
-      figure.style.cssText = figure_style;
+      let figure = document.createElement('figure')
+      figure.style.cssText = figureStyle
 
       // Create bullet list item
-      let bul = document.createElement("li");
-      let bul_text = document.createTextNode("•")
-      bul.style.cssText = bullet_list_style;
-      bul.appendChild(bul_text)
+      let bul = document.createElement('li')
+      let bulText = document.createTextNode('•')
+      bul.style.cssText = bulletListStyle
+      bul.appendChild(bulText)
 
       // Reference the bullet to corresponding img container
-      bul.img = figure;
-      bul.nr = index;
-      index += 1;
+      bul.img = figure
+      bul.nr = index
+      index += 1
 
-      // Add ScrollTo-method when bullet is clicked
-      bul.ScrollTo = function() {
-          let dist = this.img.getBoundingClientRect().x - container.getBoundingClientRect().x;
-          current = this;
-          this.style.color = cur_color;
-          /* IE fix: no scroll or scrollBy */
-          if ( typeof container.scrollBy === "function" ) {
-            container.scrollBy({
-              left: dist,
-              behavior: 'smooth'
-            })
-          } else if ( typeof container.scrollLeft === "number" ) {
-            dist = container.scrollWidth;
-            let total = container.children.length;
-            container.scrollLeft = bul.nr * dist / total;
-          }
-          setTimeout(() => {
-            container.style.backgroundImage = "url(" + this.img.querySelector("img").src + ")";
-          },300);
+      // Add scrollTo-method when bullet is clicked
+      bul.scrollTo = function () {
+        let dist = this.img.getBoundingClientRect().x - container.getBoundingClientRect().x
+        g.current = this
+        this.style.color = currentColor
+        /* IE fix: no scroll or scrollBy */
+        if (isFunction(container.scrollBy)) {
+          container.scrollBy({
+            left: dist,
+            behavior: 'smooth'
+          })
+        } else if (isNumber(container.scrollLeft)) {
+          dist = container.scrollWidth
+          let total = container.children.length
+          container.scrollLeft = bul.nr * dist / total
+        }
+        setTimeout(() => {
+          container.style.backgroundImage = `url(${this.img.querySelector('img').src})`
+        }, 300)
       }
 
       // Add click event too bullet
-      bul.addEventListener('click',() => {
-          clearInterval(interval);
-          interval = null;
-          current.style.color = "black";
-          bul.ScrollTo();
-      })
+      bul.addEventListener('click',
+        () => {
+          clearInterval(interval)
+          interval = null
+          g.current.style.color = 'black'
+          bul.scrollTo()
+        }
+      )
 
       // Store for later reference
-      bullets.push(bul);
+      bullets.push(bul)
 
       // Move image in the container
-      figure.appendChild(image);
-      container.appendChild(figure);
-      
+      figure.appendChild(image)
+      container.appendChild(figure)
+
       // Move bullet in list
-      list.appendChild(bul);
+      list.appendChild(bul)
     }
 
     // Add the container and list too the image-gallery
-    gal[g].appendChild(container)
-    gal[g].appendChild(list)
+    g.appendChild(container)
+    g.appendChild(list)
 
     // Start at the first image in the gallery
-    current = bullets[0];
-    current.style.color = cur_color;
-
-    // Some usefull functions
-    function ScrollToNext() {
-      if ( current.nextElementSibling ) {
-        current.style.color = "black";
-        current = current.nextElementSibling;
-        current.ScrollTo();
-        return true
-      }
-      else {
-        return false
-      }
-    }
-
-    function ScrollToPrev() {
-      if ( current.previousElementSibling ) {
-        current.style.color = "black";
-        current = current.previousElementSibling;
-        current.ScrollTo();
-        return true
-      }
-      else {
-        return false
-      }
-    }
-
-    function ScrollToBegin() {
-      current.style.color = "black";
-      current = bullets[0];
-      current.style.color = cur_color;
-      /* IE fix: no scroll or scrollBy */
-      if ( typeof container.scroll === "function" ) {
-        container.scroll({
-          left: 0,
-          behavior: 'auto'
-        })
-      } else if ( typeof container.scrollLeft === "number" ) {
-        container.scrollLeft = 0;
-      }
-      setTimeout(() => {
-        container.style.backgroundImage = "url(" + current.img.querySelector("img").src + ")";
-      },bullets.length*50);
-    }
+    g.current = bullets[0]
+    g.current.style.color = currentColor
 
     // A click on container will reset slide-show
     container.addEventListener(
       'click',
       () => {
-        if ( !ScrollToNext() ) {
-          ScrollToBegin()
-        }
-        if ( !interval ) {
-          StartSlideShow()
+        scrollToNext(g.current)
+        if (!interval) {
+          interval = g.startSlideShow()
         }
       })
 
     // Needed for touch event (start/end)
-    let prev = null;
-    let start = null;
+    let prev = null
+    let start = null
 
     // Add touch-events (for scrolling through pages)
     container.addEventListener(
       'touchstart',
       (e) => {
         clearInterval(interval)
-        interval = null;
-        start = e.touches[0].clientX; 
-      },{ passive: true })
+        interval = null
+        start = e.touches[0].clientX
+      }, { passive: true })
 
     container.addEventListener(
       'touchmove',
-      (e) => { 
-        let x = e.touches[0].clientX; 
-        if ( prev ) { 
+      (e) => {
+        let x = e.touches[0].clientX
+        if (prev) {
           /* IE fix: no scroll or scrollBy */
-          if ( typeof container.scrollBy === "function" ) {
-            container.scrollBy(prev - x,0) 
-          } else if ( typeof container.scrollLeft === "number" ) {
-            container.scrollLeft = prev - x;
+          if (isFunction(container.scrollBy)) {
+            container.scrollBy(prev - x, 0)
+          } else if (isNumber(container.scrollLeft)) {
+            container.scrollLeft = prev - x
           }
-        } 
-        prev = x; 
-      },{ passive: true })
+        }
+        prev = x
+      }, { passive: true })
 
     container.addEventListener(
       'touchend',
       () => {
-        if( start && prev ) {
-          if ( start - prev > 0 ) {
-            ScrollToNext()
-          }
-          else {
-            ScrollToPrev()
+        if (start && prev) {
+          if (start - prev > 0) {
+            scrollToNext(g.current)
+          } else {
+            scrollToPrev(g.current)
           }
         }
-        prev = null;
-        start = null;
+        prev = null
+        start = null
       })
 
-    // The id of setInterval for reference
-    let interval = null;
-
     // Automate scrolling on pageload
-    function StartSlideShow() {
-      interval = setInterval(function() {
-        if ( !ScrollToNext() ) {
-          ScrollToBegin()
-        }
-      },interval_timing);
+    g.startSlideShow = function () {
+      let interval = setInterval(() => {
+        scrollToNext(g.current)
+      }, intervalTiming)
+      return interval
     }
 
     // Start the slideshow
-    StartSlideShow()
+    let interval = g.startSlideShow()
   }
 })()
