@@ -13,9 +13,11 @@
       content: 'agenda'
     },
     {
+      link: './index.html',
       content: 'biografie'
     },
     {
+      link: './index.html',
       content: 'contact'
     }
   ]
