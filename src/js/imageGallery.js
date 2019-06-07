@@ -20,15 +20,10 @@
 // 'width: fit-content & -moz-fit-content'
 // might not be supported on all browsers
 
-(function () {
-  function isFunction (it) {
-    return Object.prototype.toString.call(it) === '[object Function]'
-  }
+import isFunction from './isFunction'
+import isNumber from './isNumber'
 
-  function isNumber (it) {
-    return Object.prototype.toString.call(it) === '[object Number]'
-  }
-
+export default function imageGallery () {
   const currentColor = 'rgb(205,182,82)'
   const intervalTiming = 5000 // In milliseconds
 
@@ -271,4 +266,4 @@
     // Start the slideshow
     let interval = g.startSlideShow()
   }
-})()
+}

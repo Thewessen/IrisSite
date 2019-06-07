@@ -1,4 +1,8 @@
-(function () {
+import isFunction from './isFunction'
+import setAttributes from './setAttributes'
+import animate from './animate'
+
+export default function drawingStrings () {
   // Constants
   // =================================
   const headerWidthBreakpoint = 768
@@ -27,7 +31,7 @@
 
   // All elements needed
   // =================================
-  let footer = document.getElementById('footer')
+  const footer = document.getElementById('footer')
   if (!footer) {
     console.err(`
       drawingLinesSVG.js loaded but no svg with id='footer' found.
@@ -36,7 +40,7 @@
       `)
     return
   }
-  let header = document.getElementById('header')
+  const header = document.getElementById('header')
   if (!header) {
     console.err(`
       drawingLinesSVG.js loaded but no svg with id='header' found.
@@ -45,12 +49,12 @@
       `)
     return
   }
-  let harpburger = document.getElementById('harpburger')
+  const harpburger = document.getElementById('harpburger')
   if (!harpburger) {
     console.warn(`No svg with id=${harpburger} detected. Unable to create click event.`)
   }
-  let main = document.querySelector('main')
-  let nav = document.getElementById('menu')
+  const main = document.querySelector('main')
+  const nav = document.getElementById('menu')
   if (!main || !nav) {
     console.warn('There are no main and/or nav tags to swap')
   }
@@ -60,50 +64,6 @@
   nav.style.opacity = 0
   nav.style.display = 'none'
   let isOpen = true
-
-  // Helper functions
-  // =================================
-  // Checks if argument is a function
-  function isFunction (it) {
-    return Object.prototype.toString.call(it) === '[object Function]'
-  }
-  // Set attributes on element
-  function setAttributes (elem, attrs) {
-    for (let key in attrs) {
-      elem.setAttribute(key, attrs[key])
-    }
-  }
-  // Creating animations
-  function animate (obj, prop, end, time, callback) {
-    // More error-testcases are needed...
-    if (time % 5 !== 0) {
-      console.warn('Animation time not dividable by 5. Set different..')
-      return
-    }
-    let reverse = obj[prop] > end
-    let id = setInterval(reverse ? revAnimation : animation, 5)
-    let incr = (end - parseFloat(obj[prop])) / (time / 5)
-    function revAnimation () {
-      if (obj[prop] <= end) {
-        clearInterval(id)
-        if (isFunction(callback)) {
-          callback()
-        }
-      } else {
-        obj[prop] = parseFloat(obj[prop]) + incr
-      }
-    }
-    function animation () {
-      if (obj[prop] >= end) {
-        clearInterval(id)
-        if (isFunction(callback)) {
-          callback()
-        }
-      } else {
-        obj[prop] = parseFloat(obj[prop]) + incr
-      }
-    }
-  }
 
   // Main
   // =================================
@@ -251,4 +211,4 @@
   }
   window.addEventListener('resize', reCreateLines, false)
   window.addEventListener('orientationchange', reCreateLines, false)
-})()
+}

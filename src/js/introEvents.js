@@ -1,4 +1,4 @@
-(function () {
+export default function introEvents () {
   let header = document.getElementById('top')
   let footer = document.getElementById('bottom')
   let body = document.body
@@ -31,4 +31,4 @@
   window.addEventListener('click', showNav, false)
   window.addEventListener('scroll', showNav, false)
   let id = window.setTimeout(showNav, 5000)
-})()
+}

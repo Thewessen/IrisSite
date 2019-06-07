@@ -1,4 +1,4 @@
-(function () {
+export default function navigation () {
   let indices = [
     {
       link: './zaal.html',
@@ -107,4 +107,4 @@
     // add elements to the DOM
     nav.appendChild(ulst)
   }
-})()
+}

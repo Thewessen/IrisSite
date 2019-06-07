@@ -1,0 +1,26 @@
+{
+  "name": "ivde_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "live-server -V dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thewessen/IrisSite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thewessen/IrisSite/issues"
+  },
+  "homepage": "https://github.com/Thewessen/IrisSite#readme",
+  "devDependencies": {
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3"
+  }
+}
