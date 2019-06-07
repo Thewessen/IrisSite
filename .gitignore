@@ -1,1 +1,5 @@
+
+# vim
 Session.vim
+*.vim
+*.sw?
