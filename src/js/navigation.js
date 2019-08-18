@@ -1,3 +1,6 @@
+import isFunction from './isFunction'
+import animate from './animate'
+
 export default function navigation () {
   let indices = [
     {
@@ -22,43 +25,6 @@ export default function navigation () {
     }
   ]
 
-  // Checks if argument is a function
-  function isFunction (it) {
-    return Object.prototype.toString.call(it) === '[object Function]'
-  }
-
-  // Helps to set attributes on element
-  function animate (obj, prop, end, time, callback) {
-    // More error-testcases are needed...
-    if (time % 5 !== 0) {
-      console.warn('Animation time not dividable by 5. Set different..')
-      return
-    }
-    let value = obj[prop]
-    let reverse = value > end
-    let id = setInterval(reverse ? revAnimation : animation, 5)
-    let incr = (end - parseFloat(value)) / (time / 5)
-    function revAnimation () {
-      if (value <= end) {
-        clearInterval(id)
-        if (isFunction(callback)) {
-          callback()
-        }
-      } else {
-        obj[prop] = parseFloat(value) + incr
-      }
-    }
-    function animation () {
-      if (value >= end) {
-        clearInterval(id)
-        if (isFunction(callback)) {
-          callback()
-        }
-      } else {
-        obj[prop] = parseFloat(value) + incr
-      }
-    }
-  }
   // find root elements
   let nav = document.getElementById('menu')
   if (nav) {

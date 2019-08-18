@@ -1,6 +1,6 @@
 import isFunction from './isFunction'
 import setAttributes from './setAttributes'
-import animate from './animate'
+import animate from './animationPromise'
 
 export default function drawingStrings () {
   // Constants
@@ -162,30 +162,32 @@ export default function drawingStrings () {
   function openMenu () {
     let sts = grabBurgerIcon()
     let delta = stringX1 - stringX2
-    animate(nav.style, 'opacity', 0, antimeSlow)
-    animate(sts[2].x2.baseVal, 'value', sts[2].getAttribute('x1') - delta, antimeSlow)
-    animate(sts[0].x2.baseVal, 'value', sts[0].getAttribute('x1') - delta, antimeSlow,
-      () => {
-        nav.style.display = 'none'
-        animate(main.style, 'opacity', 1, antimeFast)
-        animate(sts[1].style, 'opacity', 1, antimeFast)
-        main.style.display = 'flex'
-        isOpen = true
-      })
+    Promise.all([
+      animate(nav.style, 'opacity', 0, antimeSlow),
+      animate(sts[2].x2.baseVal, 'value', sts[2].getAttribute('x1') - delta, antimeSlow),
+      animate(sts[0].x2.baseVal, 'value', sts[0].getAttribute('x1') - delta, antimeSlow)
+    ]).then(() => {
+      nav.style.display = 'none'
+      animate(main.style, 'opacity', 1, antimeFast)
+      animate(sts[1].style, 'opacity', 1, antimeFast)
+      main.style.display = 'flex'
+      isOpen = true
+    })
   }
 
   function closeMenu () {
     let sts = grabBurgerIcon()
-    animate(main.style, 'opacity', 0, antimeFast)
-    animate(sts[1].style, 'opacity', 0, antimeFast,
-      () => {
-        main.style.display = 'none'
-        animate(sts[0].x2.baseVal, 'value', sts[2].getAttribute('x1'), antimeSlow)
-        animate(sts[2].x2.baseVal, 'value', sts[0].getAttribute('x1'), antimeSlow)
-        animate(nav.style, 'opacity', 1, antimeSlow)
-        nav.style.display = 'block'
-        isOpen = false
-      })
+    Promise.all([
+      animate(main.style, 'opacity', 0, antimeFast),
+      animate(sts[1].style, 'opacity', 0, antimeFast)
+    ]).then(() => {
+      main.style.display = 'none'
+      animate(sts[0].x2.baseVal, 'value', sts[2].getAttribute('x1'), antimeSlow)
+      animate(sts[2].x2.baseVal, 'value', sts[0].getAttribute('x1'), antimeSlow)
+      animate(nav.style, 'opacity', 1, antimeSlow)
+      nav.style.display = 'block'
+      isOpen = false
+    })
   }
 
   // Eventlisteners
