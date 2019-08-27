@@ -1,7 +1,7 @@
-import drawingStrings from './js/drawingStringsSVG'
-import imageGallery from './js/imageGallery'
-import navigation from './js/navigation'
-import introEvents from './js/introEvents'
+import drawingStrings from './modules/drawingStringsSVG'
+import imageGallery from './modules/imageGallery'
+import navigation from './modules/navigation'
+import introEvents from './modules/introEvents'
 
 drawingStrings()
 imageGallery()
