@@ -1,5 +1,6 @@
 # npm
 /node_modules/
+.tern-port
 
 # vim
 Session.vim
