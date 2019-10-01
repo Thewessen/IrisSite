@@ -1,35 +1,40 @@
 (function () {
   // Constants
   // =================================
-  const headerWidthBreakpoint = 768
-  const headerHeight = window.innerWidth < headerWidthBreakpoint
+  // distances (in px)
+  const HEADERWIDTH = 768
+  const HEADERHEIGHT = window.innerWidth < HEADERWIDTH
     ? 90 : 135
-  const footerHeight = window.innerWidth < headerWidthBreakpoint
+  const FOOTERHEIGHT = window.innerWidth < HEADERWIDTH
     ? 60 : 90
-  const stringDistance = window.innerWidth < headerWidthBreakpoint
+  const STRINGDIST = window.innerWidth < HEADERWIDTH
     ? 20 : 40
-  const headerMargin = window.innerWidth < headerWidthBreakpoint
+  const HEADERMARGIN = window.innerWidth < HEADERWIDTH
     ? 10 : 20
-  const stringX1 = window.innerWidth < headerWidthBreakpoint
+  const X1 = window.innerWidth < HEADERWIDTH
     ? 40 : 60
-  const stringX2 = 0
-  const stringY1 = 0
-  const stringY2 = window.innerWidth < headerWidthBreakpoint
+  const X2 = 0
+  const Y1 = 0
+  const Y2 = window.innerWidth < HEADERWIDTH
     ? 60 : 90
-  const strokeWidth = 1
-  const redStringColor = 'rgb(237,28,36)'
-  const blueStringColor = 'rgb(53,79,162)'
-  const whiteStringColor = 'rgb(35,31,32)'
-  const antimeSlow = window.innerWidth < headerWidthBreakpoint
+  const STROKEWIDTH = 1
+
+  // string-colors
+  const RED = 'rgb(237,28,36)'
+  const BLUE = 'rgb(53,79,162)'
+  const WHITE = 'rgb(35,31,32)'
+
+  // timings (in ms)
+  const ANIMATE_SLOW = window.innerWidth < HEADERWIDTH
     ? 60 : 200
-  const antimeFast = window.innerWidth < headerWidthBreakpoint
+  const ANIMATE_FAST = window.innerWidth < HEADERWIDTH
     ? 30 : 100
 
   // All elements needed
   // =================================
   let footer = document.getElementById('footer')
   if (!footer) {
-    console.err(`
+    console.error(`
       drawingLinesSVG.js loaded but no svg with id='footer' found.
       Both a svg with id='header' and id='footer' are necessary,
       for this script to run properly.
@@ -38,7 +43,7 @@
   }
   let header = document.getElementById('header')
   if (!header) {
-    console.err(`
+    console.error(`
       drawingLinesSVG.js loaded but no svg with id='header' found.
       Both a svg with id='header' and id='footer' are necessary,
       for this script to run properly.
@@ -109,18 +114,18 @@
   // =================================
   function reCreateLines () {
     // Dimensions of strings
-    let dims = {
-      'x1': stringX1 + headerMargin,
-      'x2': stringX2 + headerMargin,
-      'y1': stringY1,
-      'y2': stringY2,
-      'stroke-width': strokeWidth,
-      'stroke': ''
-    }
+    let dims = (index) => ({
+      'x1': X1 + HEADERMARGIN + STRINGDIST * index,
+      'x2': X2 + HEADERMARGIN + STRINGDIST * index,
+      'y1': Y1,
+      'y2': Y2,
+      'stroke-width': STROKEWIDTH,
+      'stroke': strokeColor(index)
+    })
 
     // Dimension of image
-    header.parentElement.setAttribute('height', headerHeight)
-    footer.parentElement.setAttribute('height', footerHeight)
+    header.parentElement.setAttribute('height', HEADERHEIGHT)
+    footer.parentElement.setAttribute('height', FOOTERHEIGHT)
 
     // Remove all lines that exists
     while (footer.firstChild) {
@@ -131,17 +136,13 @@
     }
 
     // Create new lines
-    for (let i = 0; dims.x1 + headerMargin <= window.innerWidth; i += 1) {
-      dims.stroke = strokeColor(i)
-      createNewLine(footer, dims)
-      createNewLine(header, dims)
-      dims.x1 += stringDistance
-      dims.x2 += stringDistance
+    for (let i = 0; X1 + STRINGDIST * i + HEADERMARGIN * 2 <= window.innerWidth; i += 1) {
+      createNewLine(footer, dims(i))
+      createNewLine(header, dims(i))
     }
 
     // create extra line for header (for burger icon)
-    dims.stroke = strokeColor(header.children.length)
-    createNewLine(header, dims)
+    createNewLine(header, dims(header.children.length))
 
     // create burger icon
     createBurgerIcon(header)
@@ -149,11 +150,11 @@
 
   function strokeColor (stnr) {
     if (stnr % 7 === 0) {
-      return redStringColor
+      return RED
     } else if (stnr % 7 === 3) {
-      return blueStringColor
+      return BLUE
     } else {
-      return whiteStringColor
+      return WHITE
     }
   }
 
@@ -171,10 +172,10 @@
   }
 
   function createBurgerIcon (elem) {
-    let x1 = stringX1 + headerMargin
-    let x2 = stringX2 + headerMargin
-    let y1 = stringY1
-    let y2 = stringY2
+    let x1 = X1 + HEADERMARGIN
+    let x2 = X2 + HEADERMARGIN
+    let y1 = Y1
+    let y2 = Y2
 
     let diffx = (x1 - x2) / 2
     let diffy = (y2 - y1) / 2
@@ -187,7 +188,7 @@
         'x2': parseInt(st.getAttribute('x2')) - diffx,
         'y1': parseInt(st.getAttribute('y1')) + diffy,
         'y2': parseInt(st.getAttribute('y2')) + diffy,
-        'stroke-width': strokeWidth * 2
+        'stroke-width': STROKEWIDTH * 2
       }
       setAttributes(st, dims)
     }
@@ -201,14 +202,14 @@
 
   function openMenu () {
     let sts = grabBurgerIcon()
-    let delta = stringX1 - stringX2
-    animate(nav.style, 'opacity', 0, antimeSlow)
-    animate(sts[2].x2.baseVal, 'value', sts[2].getAttribute('x1') - delta, antimeSlow)
-    animate(sts[0].x2.baseVal, 'value', sts[0].getAttribute('x1') - delta, antimeSlow,
+    let delta = X1 - X2
+    animate(nav.style, 'opacity', 0, ANIMATE_SLOW)
+    animate(sts[2].x2.baseVal, 'value', sts[2].getAttribute('x1') - delta, ANIMATE_SLOW)
+    animate(sts[0].x2.baseVal, 'value', sts[0].getAttribute('x1') - delta, ANIMATE_SLOW,
       () => {
         nav.style.display = 'none'
-        animate(main.style, 'opacity', 1, antimeFast)
-        animate(sts[1].style, 'opacity', 1, antimeFast)
+        animate(main.style, 'opacity', 1, ANIMATE_FAST)
+        animate(sts[1].style, 'opacity', 1, ANIMATE_FAST)
         main.style.display = 'flex'
         isOpen = true
       })
@@ -216,13 +217,13 @@
 
   function closeMenu () {
     let sts = grabBurgerIcon()
-    animate(main.style, 'opacity', 0, antimeFast)
-    animate(sts[1].style, 'opacity', 0, antimeFast,
+    animate(main.style, 'opacity', 0, ANIMATE_FAST)
+    animate(sts[1].style, 'opacity', 0, ANIMATE_FAST,
       () => {
         main.style.display = 'none'
-        animate(sts[0].x2.baseVal, 'value', sts[2].getAttribute('x1'), antimeSlow)
-        animate(sts[2].x2.baseVal, 'value', sts[0].getAttribute('x1'), antimeSlow)
-        animate(nav.style, 'opacity', 1, antimeSlow)
+        animate(sts[0].x2.baseVal, 'value', sts[2].getAttribute('x1'), ANIMATE_SLOW)
+        animate(sts[2].x2.baseVal, 'value', sts[0].getAttribute('x1'), ANIMATE_SLOW)
+        animate(nav.style, 'opacity', 1, ANIMATE_SLOW)
         nav.style.display = 'block'
         isOpen = false
       })
